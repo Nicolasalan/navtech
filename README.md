@@ -1,2 +1,5 @@
 # NavTech
-Uma seta apontando para frente, simbolizando a jornada e a direção.
+
+<p align="center">
+  <img src="image.png" alt="NavTech">
+</p>
