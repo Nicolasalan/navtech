@@ -34,8 +34,11 @@ toalhas sujas por limpas”.
 * Seguir pessoas
 * Procurar objetos
 * Entrega de objetos
+* reconhecimento facial
+
 ### Empresas
 * [Robotics companies](https://github.com/vmayoral/ros-robotics-companies)
+
 
 ## Phase 2: Early Design
 
@@ -58,7 +61,7 @@ toalhas sujas por limpas”.
 - [ ] Motor driver board | Description - (Ou BTS7960) | Price R$ 45,62 | [site](https://www.banggood.com/Wholesale-L298N-Dual-H-Bridge-Stepper-Motor-Driver-Board-p-42826.html?warehouse=HK&ID=0&p=F6190022409212015085&custlinkid=1756662&cur_warehouse=CN)
 - [ ] Câmera Raspberry Pi v2 8MP | Price R$ 69,00 | [site](https://www.robocore.net/acessorios-raspberry-pi/camera-para-raspberry-pi-rev-1-3)
 - [ ] RPLidar A1 | Description - (Verificar no Lab) | Price R$ R$741,99 | [site](https://www.amazon.com.br/Waveshare-RPLIDAR-A1-Omnidirectional-Acquisition/dp/B0B6B5MWSJ/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=RPLidar+A1&qid=1677384697&sr=8-1&ufe=app_do%3Aamzn1.fos.25548f35-0de7-44b3-b28e-0f56f3f96147)
-- [ ] Panel mount connectors | Description - (USB, HDMI, Hub)
+- [ ] Panel mount connectors | Description - (USB, HDMI, Hub) | Price ?
 - [ ] 3d printer 	***RoboFEI**
 - [ ] Cooling Raspberry Pi 	***RoboFEI**
 - [ ] Various crimp tools and their connectors (bootlace, spade, JST, etc.) ***RoboFEI**
@@ -73,7 +76,7 @@ toalhas sujas por limpas”.
 
 ## Phase 4: Assembly
 
-- [ ] Placa de circuito impresso
+- [ ] Placa de circuito impresso (PCBs)
 - [ ] Montagem do robô
 - [ ] Impressão 3D
 
@@ -102,6 +105,7 @@ toalhas sujas por limpas”.
 - [ ] Robot learning
 - [ ] Robot driver
 - [ ] robot interface
+- [ ] robot test integration
 
 ## Phase 6: Testing
 
@@ -114,6 +118,7 @@ toalhas sujas por limpas”.
 - [ ] Video
 - [ ] Results
 - [ ] Website
+- [ ] ABNT
 
 ## Phase 8: Presentation
 
