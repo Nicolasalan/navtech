@@ -90,6 +90,9 @@ toalhas sujas por limpas”.
 - [ ] OpenCV
 - [ ] PyTorch
 - [ ] Arduino IDE
+- [ ] C++17
+- [ ] CMake
+- [ ] Make
 
 ### Applications
 
