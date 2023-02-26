@@ -4,7 +4,7 @@
   <img src="doc/image.png" alt="NavTech">
 </p>
 
-- **A - Robô doméstico (limpa a casa e cuida de você)**
+- **A - Robô doméstico**
 
 Pedido do cliente: “Sou idoso e quero um robô que limpe o chão e o carpete da
 minha casa, e que entenda minhas necessidades, tais como pegar meus
@@ -17,7 +17,7 @@ entregando alimentos e remédios para os pacientes. Ele deverá entregar as
 refeições e remédios corretamente a cada paciente, porque cada paciente possuí
 diferentes restrições alimentares e medicações prescrita pelo médico”.
 
-- **C - Robô de limpeza.**
+- **C - Robô de limpeza**
 
 Pedido do cliente: “Sou gerente de hotel, mas esse hotel é bem grande, então
 pensei que um robô poderia ajudar na limpeza dos quartos, pelo menos
@@ -25,6 +25,17 @@ limpando o chão dos quartos e limpando o banheiro, se possível trocando as
 toalhas sujas por limpas”. 
 
 ## Phase 1: Project Definition
+
+### Aplicação
+* Navegação dos waypoints
+* Navegação dos waypoints com obstáculos
+* Cobertura de área
+* Trajetória de limpeza
+* Seguir pessoas
+* Procurar objetos
+* Entrega de objetos
+### Empresas
+* [Robotics companies](https://github.com/vmayoral/ros-robotics-companies)
 
 ## Phase 2: Early Design
 
@@ -85,6 +96,7 @@ toalhas sujas por limpas”.
 - [ ] Robot perception
 - [ ] Robot learning
 - [ ] Robot driver
+- [ ] robot interface
 
 ## Phase 6: Testing
 
