@@ -35,6 +35,9 @@ toalhas sujas por limpas”.
 * Procurar objetos
 * Entrega de objetos
 * reconhecimento facial
+* Inspeção de instalações
+* Patrulha de segurança
+* Monitoramento de idosos/animais/plantas
 
 ### Empresas
 * [Robotics companies](https://github.com/vmayoral/ros-robotics-companies)
