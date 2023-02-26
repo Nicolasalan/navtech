@@ -1,0 +1,42 @@
+<launch>
+
+<!--######################## argument list #################################-->
+
+  <arg name="gui_teleop_keyboard" default="true"/>
+  <arg name="gui_teleop_joy"      default="true"/>
+  <arg name="gui_rviz"            default="true"/>
+  <arg name="rviz_file"           default="$(find robot_description)/rviz/robot.rviz"/>
+
+<!--#################### interface #########################################-->
+
+  <!-- keyboard teleop -->
+  <group if="$(arg gui_teleop_keyboard)">
+    <node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py"
+      output="screen" launch-prefix="xterm -hold -e"/>
+  </group>
+
+  <!-- joy teleop -->
+  <group if="$(arg gui_teleop_joy)">
+    <arg name="joy_config" default="xbox" />
+    <arg name="joy_dev" default="/dev/input/js0" />
+    <arg name="config_filepath" default="$(find teleop_twist_joy)/config/$(arg joy_config).config.yaml" />
+    <node pkg="joy" type="joy_node" name="joy_node">
+      <param name="dev" value="$(arg joy_dev)" />
+      <param name="deadzone" value="0.3" />
+      <param name="autorepeat_rate" value="20" />
+    </node>
+    <node pkg="teleop_twist_joy" name="teleop_twist_joy" type="teleop_node">
+      <rosparam command="load" file="$(arg config_filepath)" />
+      <param name="scale_linear" value="0.7" />
+      <param name="scale_linear_turbo" value="1.5" />
+      <param name="scale_angular" value="2.0" />
+    </node>
+  </group>
+
+	<!-- rviz -->
+  <group if="$(arg gui_rviz)">
+		<node name="rviz" pkg="rviz" type="rviz" output="screen"
+		  args="-d $(arg rviz_file)" />
+  </group>
+
+</launch>
