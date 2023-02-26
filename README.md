@@ -1,7 +1,7 @@
 # NavTech
 
 <p align="center">
-  <img src="image.png" alt="NavTech">
+  <img src="doc/image.png" alt="NavTech">
 </p>
 
 - **Robô doméstico (limpa a casa e cuida de você)**
