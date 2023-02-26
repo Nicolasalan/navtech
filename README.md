@@ -27,8 +27,8 @@ toalhas sujas por limpas”.
 ## Phase 1: Project Definition
 
 ### Aplicação
-* Navegação dos waypoints
-* Navegação dos waypoints com obstáculos
+* Navegação waypoints
+* Navegação waypoints com obstáculos
 * Cobertura de área
 * Trajetória de limpeza
 * Seguir pessoas
