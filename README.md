@@ -97,6 +97,7 @@ toalhas sujas por limpas”.
 - [ ] Robot learning
 - [ ] Robot driver
 - [ ] robot interface
+- [ ] simulation
 
 ## Phase 6: Testing
 
