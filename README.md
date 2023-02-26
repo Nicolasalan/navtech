@@ -58,7 +58,7 @@ toalhas sujas por limpas”.
 - [ ] Motor driver board | Description - (Ou BTS7960) | Price R$ 45,62 | [site](https://www.banggood.com/Wholesale-L298N-Dual-H-Bridge-Stepper-Motor-Driver-Board-p-42826.html?warehouse=HK&ID=0&p=F6190022409212015085&custlinkid=1756662&cur_warehouse=CN)
 - [ ] Câmera Raspberry Pi v2 8MP | Price R$ 69,00 | [site](https://www.robocore.net/acessorios-raspberry-pi/camera-para-raspberry-pi-rev-1-3)
 - [ ] RPLidar A1 | Description - (Verificar no Lab) | Price R$ R$741,99 | [site](https://www.amazon.com.br/Waveshare-RPLIDAR-A1-Omnidirectional-Acquisition/dp/B0B6B5MWSJ/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=RPLidar+A1&qid=1677384697&sr=8-1&ufe=app_do%3Aamzn1.fos.25548f35-0de7-44b3-b28e-0f56f3f96147)
-- [ ] Panel mount connectors | Description - (USB, HDMI)
+- [ ] Panel mount connectors | Description - (USB, HDMI, Hub)
 - [ ] 3d printer 	***RoboFEI**
 - [ ] Cooling Raspberry Pi 	***RoboFEI**
 - [ ] Various crimp tools and their connectors (bootlace, spade, JST, etc.) ***RoboFEI**
@@ -68,6 +68,8 @@ toalhas sujas por limpas”.
 - [ ] Portable keyboard/mouse/screen ***RoboFEI**
 - [ ] Fasteners and adhesives (cable ties, screws, bolts, tape, etc.) ***RoboFEI**
 - [ ] Rotary Tool/Dremel (hand tools or other power tools can also be used) ***RoboFEI**
+- [ ] 18650 Battery Holder 4 Slots | Price $ 7,99 | [site](https://www.amazon.com/abcGoodefg-Battery-Holder-Plastic-Storage/dp/B071XTGBH6/ref=sr_1_1?crid=1L5HZHK1U0S6Y&dchild=1&keywords=18650+battery+holder+4+slot&qid=1606271098&sprefix=18650+battery+holder+4%2Caps%2C340&sr=8-1)
+- [ ] Omniwheel | Price ? 
 
 ## Phase 4: Assembly
 
@@ -97,7 +99,6 @@ toalhas sujas por limpas”.
 - [ ] Robot learning
 - [ ] Robot driver
 - [ ] robot interface
-- [ ] simulation
 
 ## Phase 6: Testing
 
