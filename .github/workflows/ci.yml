@@ -1,6 +1,5 @@
 name: CI
-orbs:
-  codecov: codecov/codecov@3
+
 on: [push, pull_request]
 jobs:
   build:
