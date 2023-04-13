@@ -35,7 +35,8 @@ help:
 .PHONY: build
 build:
 	@echo "Building docker image ..."
-	@sudo docker login && docker build -t robot-docker . 
+	@UPAR="--build-arg UID=`id -u` --build-arg GID=`id -g`"
+	@docker build ${UPAR} -t robot-docker . 
 # === Clean docker ===
 .PHONY: clean
 clean:
