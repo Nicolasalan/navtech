@@ -1,6 +1,0 @@
-pyyaml
-numpy
-squaternion
-psutil
-rospkg
-wget

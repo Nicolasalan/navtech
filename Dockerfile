@@ -1,58 +1,76 @@
-FROM ros:humble AS base
-SHELL ["/bin/bash", "-c"]
+FROM osrf/ros:humble-desktop-full
 
-ARG UID=1000
-ARG GID=1000
+# variable version ROS
+ENV ROS_DISTRO=humble
 
-# install libraries and ros packages 
-RUN apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+# Set the locale
+ARG DEBIAN_FRONTEND=noninteractive 
 
-# User: robot (password: robot) with sudo power
-RUN useradd -ms /bin/bash robot && echo "robot:robot" | chpasswd && adduser robot sudo
-RUN usermod -u $UID robot && groupmod -g $GID robot
+# Change the default shell to Bash
+SHELL [ "/bin/bash" , "-c"]
 
-###### USER robot ######
+# Setup Environment
+RUN apt-get update && apt-get install -y \
+  cmake \
+  g++ \
+  git \
+  gnupg gnupg1 gnupg2 \
+  libcanberra-gtk* \
+  python3-pip \
+  python3-tk \
+  wget \
+  vim
 
-USER robot
-RUN echo "set -g mouse on" > $HOME/.tmux.conf 
-RUN touch ~/.sudo_as_admin_successful
+# Create workspace
+RUN mkdir -p /ws_navtech/src/3rd
+RUN mkdir -p /ws_navtech/src/navtech
 
-# Set up .bashrc
+# Copy Entry Point and Makefile
+COPY entrypoint.sh ./entrypoint.sh
+COPY Makefile ./Makefile
 
-RUN echo "" >> $HOME/.bashrc
-RUN echo "source $HOME/ros/ws/devel/setup.bash" >> $HOME/.bashrc
-RUN echo "" >> $HOME/.bashrc
+# Copy package ros
+COPY ./src/robot_nav ./src/navtech/robot_nav
+COPY ./src/robot_driver ./src/navtech/robot_driver
+COPY ./src/robot_description ./src/navtech/robot_description
 
-# Install additional ROS packages
+# Clone lidar package
+RUN cd /ws_navtech/src/3rd \
+ && git clone https://github.com/Slamtec/sllidar_ros2.git
+
+# Install Dependencies Navigation
 RUN apt-get update && apt-get install -y --no-install-recommends \
-  ros-humble-cartographer \
-  ros-humble-cartographer-ros \
-  ros-humble-gazebo-ros \
-  ros-humble-navigation2 \
-  ros-humble-nav2-bringup \
-  ros-humble-rmw-cyclonedds-cpp
+    apt-utils \
+    ros-$ROS_DISTRO-rqt-reconfigure \
+    ros-$ROS_DISTRO-navigation2 \
+    ros-$ROS_DISTRO-nav2-bringup \
+    ros-$ROS_DISTRO-cartographer-ros
 
-# Use Cyclone DDS as middleware
-ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+# Install Dependencies Description
+RUN apt-get install -y --no-install-recommends \
+    apt-utils \
+    ros-$ROS_DISTRO-rqt-reconfigure \
+    ros-$ROS_DISTRO-rviz2 \
+    ros-$ROS_DISTRO-gazebo-ros \
+    ros-$ROS_DISTRO-gazebo-ros-pkgs \
+    ros-$ROS_DISTRO-xacro \
+    ros-$ROS_DISTRO-robot-state-publisher \
+    ros-$ROS_DISTRO-joint-state-publisher \
+    ros-$ROS_DISTRO-rplidar-ros \
+    ros-$ROS_DISTRO-joy \
+    ros-$ROS_DISTRO-teleop-twist-joy \
+    ros-$ROS_DISTRO-teleop-twist-keyboard \
+    ros-$ROS_DISTRO-tf-transformations \
+    xterm
 
-# Downgrade mesa packages because of Ubuntu bug
-# https://bugs.launchpad.net/ubuntu/+source/mesa/+bug/2004649
-RUN apt-get update && apt-get install -q -y --allow-downgrades --no-install-recommends \
-    libegl-mesa0=22.0.1-1ubuntu2 \
-    libgbm1=22.0.1-1ubuntu2 \
-    libgbm-dev=22.0.1-1ubuntu2 \
-    libgl1-mesa-dri=22.0.1-1ubuntu2 \
-    libglapi-mesa=22.0.1-1ubuntu2 \
-    libglx-mesa0=22.0.1-1ubuntu2
+# Install Dependencies with pip3
+RUN sudo pip3 install transforms3d \
+ && setuptools==58.2.0
 
-# Create Colcon workspace with external dependencies
-RUN mkdir -p /ws/src
-WORKDIR /ws
+# Source ROS and Build
+RUN source /opt/ros/humble/setup.bash 
+#&& colcon build --symlink-install --cmake-args=-DCMAKE_BUILD_TYPE=Release
 
-RUN source /opt/ros/humble/setup.bash \
-  && apt-get update -y \
-  && rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y
-RUN source /opt/ros/humble/setup.bash \
-  && colcon build --symlink-install
-
-CMD /usr/bin/tmux
+# Set workdir
+WORKDIR /ws_navtech
+ENTRYPOINT [ "/entrypoint.sh" ]
