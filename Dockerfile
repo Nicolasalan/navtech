@@ -24,16 +24,17 @@ RUN apt-get install -y --no-install-recommends \
     ros-humble-joint-state-publisher \
     ros-humble-rmw-cyclonedds-cpp \
     ros-humble-tf-transformations \
-    ros-humble-xacro 
+    ros-humble-xacro \
+    xterm
 
 # Install Dependencies with pip3
 RUN pip3 install transforms3d setuptools==58.2.0 pyserial smbus trimesh scipy pandas
  
-# Create Colcon workspace with external dependencies
+# Create Colcon workspace
 RUN mkdir -p /ws_navtech
 WORKDIR /ws_navtech
 
-# Create workspace
+# Create srec directory and navtech
 RUN mkdir -p src/3rd
 RUN mkdir -p src/navtech
 
@@ -42,9 +43,8 @@ COPY entrypoint.sh entrypoint.sh
 COPY ./Makefile Makefile
 
 # Copy package ros
-COPY ./src/robot_nav ./src/navtech/robot_nav
-COPY ./src/robot_driver ./src/navtech/robot_driver
-COPY ./src/robot_description ./src/navtech/robot_description
+COPY ./src/robot_nav /src/navtech/robot_nav
+COPY ./src/robot_description /src/navtech/robot_description
 
 # Clone lidar package
 RUN cd /ws_navtech/src/3rd \

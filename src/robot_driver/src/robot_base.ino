@@ -1,20 +1,5 @@
-/*--------------------------------------------------------------------
-
-******************************************************************************
-* @file robot_base.ino
-* @author Isaac Jesus da Silva
-* @version V3.2.0
-* @created 30/03/2022
-* @Modified 21/04/2023
-* @e-mail isaacjesuss@gmail.com
-* @revisor Isaac Jesus da Silva
-* @e-mail isaacjesuss@gmail.com
-****************************************************************************
-/--------------------------------------------------------------------------*/
-
 #include "Sabertooth.h"
 #include "Encoder.h"
-#include "NewPing.h"
 
 #include <micro_ros_arduino.h>
 
@@ -35,7 +20,6 @@
 #include <std_msgs/msg/string.h>
 #include <std_msgs/msg/u_int8_multi_array.h>
 
-
 rclc_support_t support;
 rcl_allocator_t allocator;
 rclc_executor_t executor01;
@@ -45,8 +29,8 @@ rcl_node_t node;
 bool micro_ros_init_successful;
 
 
-#define LED_PIN 25 //LED ligado na porta D25
-#define LED_PIN2 24 //LED ligado na porta D24
+#define LED_PIN 25 // LED ligado na porta D25
+#define LED_PIN2 24 // LED ligado na porta D24
 
 #define RCCHECK(fn) { rcl_ret_t temp_rc = fn; if((temp_rc != RCL_RET_OK)){return false;}}
 #define EXECUTE_EVERY_N_MS(MS, X)  do { \
@@ -62,8 +46,10 @@ enum states {
   AGENT_DISCONNECTED
 } state;
 
-#define WHEEL_DISTANCE 0.342        // Distance between the two wheels - Robot Slink=0.342 - Robot Woody=0.273
-#define MAX_SPEED 1.0             //
+#define WHEEL_DISTANCE_X 0.2045335 // Half of the distance between front wheels
+#define WHEEL_DISTANCE_Y 0.206375 // Half of the distance between front wheel and the rear wheels
+
+#define MAX_SPEED 1.0           
 
 #define ODOM_PERIOD 50 // 20 Hz
 #define CHECK_CONNECTION_PERIOD 50 // 20Hz
@@ -82,9 +68,14 @@ enum states {
 #define MAX_DISTANCE 400
 
 Sabertooth STmotors(128);
+Sabertooth STRear(129);
 
-Encoder Encoder1(22, 23);
-Encoder Encoder2(32, 33); //Woody
+float V1, V2, V3, V4;
+
+Encoder Encoder1(24, 25); //BL
+Encoder Encoder2(28, 29); //FR
+Encoder Encoder3(36, 37); //FL
+Encoder Encoder4(40, 41); //BR
 
 long odom_timer;
 long check_connection_timer;
@@ -107,65 +98,40 @@ int convertToMotor(double value) {
 void moveMotors(int Power1, int Power2) {
   STmotors.motor(1, Power1);
   STmotors.motor(2, Power2);
+  STRear.motor(1, Power3);
+  STRear.motor(2, Power4);
 }
 
 void stopMotors() {
   STmotors.motor(1, 0);
   STmotors.motor(2, 0);
+  STRear.motor(1, 0);
+  STRear.motor(2, 0);
 }
 
 void cmd_vel_callback(const void *msgin)
 {
   const geometry_msgs__msg__Twist *vel = (const geometry_msgs__msg__Twist *)msgin;
 
-  //digitalWrite(LED_PIN, (vel->linear.x <= 0) ? LOW : HIGH); 
- 
-
-  // # Extract linear and angular velocities from the message
-  // #https://snapcraft.io/blog/your-first-robot-the-driver-4-5
-  // #self._max_speed = rospy.get_param('~max_speed', 0.5)
-  // #self._wheel_base = rospy.get_param('~wheel_base', 0.091)
-  //
-  // # Formulas --
-  // # left_wheel_velocity  = x - tz/2
-  // # right_wheel_velocity = x + tz/2
-  // # x: desired linear velocity (meters per second)
-  // # z: desired angular velocity (radians per second)
-  // # t: track  (meters) distance between the two wheels
-  //        linear = message.linear.x
-  //        angular = message.angular.z
-  //
-  //        # Calculate wheel speeds in m/s
-  //        left_speed = linear - angular*WHEEL_DISTANCE/2
-  //        right_speed = linear + angular*WHEEL_DISTANCE/2
-  //
-  //        # Ideally we'd now use the desired wheel speeds along
-  //        # with data from wheel speed sensors to come up with the
-  //        # power we need to apply to the wheels, but we don't have
-  //        # wheel speed sensors. Instead, we'll simply convert m/s
-  //        # into percent of maximum wheel speed, which gives us a
-  //        # duty cycle that we can apply to each motor.
-  //        self._left_speed_percent = (100 * left_speed/self._max_speed)
-  //        self._right_speed_percent = (100 * right_speed/self._max_speed)
-
-  
-  // Calculate wheel speeds in m/s
-  double V1 = vel->linear.x - vel->angular.z*WHEEL_DISTANCE/2;
-  double V2 = vel->linear.x + vel->angular.z*WHEEL_DISTANCE/2;
+  // Calculate wheel speeds in m/s {Mecanum Kinematics}
+  V1 = vel.linear.x - vel.linear.y - (WHEEL_DISTANCE_X + WHEEL_DISTANCE_Y) * vel.angular.z;
+  V2 = vel.linear.x + vel.linear.y + (WHEEL_DISTANCE_X + WHEEL_DISTANCE_Y) * vel.angular.z;
+  V3 = vel.linear.x + vel.linear.y - (WHEEL_DISTANCE_X + WHEEL_DISTANCE_Y) * vel.angular.z;
+  V4 = vel.linear.x - vel.linear.y + (WHEEL_DISTANCE_X + WHEEL_DISTANCE_Y) * vel.angular.z;
 
   // Verifique a conexão com o Micro-ROS
   if (state == AGENT_CONNECTED) {
-    moveMotors(convertToMotor(V1), convertToMotor(V2));
+    moveMotors(convertToMotor(V1), convertToMotor(V2), convertToMotor(V3), convertToMotor(V4));
   } else {
-    moveMotors(convertToMotor(0), convertToMotor(0));
+    moveMotors(convertToMotor(0), convertToMotor(0), convertToMotor(0), convertToMotor(0));
   }
-
-//  moveMotors(convertToMotor(-127), convertToMotor(-127));
 }
 
 void clearEncoders() {
   Encoder1.write(0);
   Encoder2.write(0);
+  Encoder3.write(0);
+  Encoder4.write(0);
 }
 
 geometry_msgs__msg__Twist cmd_vel_msg;
@@ -300,6 +266,8 @@ void loop() {
   if (millis() - odom_timer >= ODOM_PERIOD) {
     enc_msg.data.data[0] = Encoder1.read();
     enc_msg.data.data[1] = Encoder2.read();
+    enc_msg.data.data[2] = Encoder2.read();
+    enc_msg.data.data[3] = Encoder3.read();
 
     odom_timer = millis();
 

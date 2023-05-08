@@ -8,7 +8,7 @@ on:
   
 jobs:
   Checkout:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -17,16 +17,14 @@ jobs:
   
   Build:
     needs: [Checkout]
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Build the docker image
-        run: docker pull ninim/navtech:latest
-      - name: Login to Docker Hub
-        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        run: make build
 
   Env:
     needs: [Build]
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     env:
       working-directory: ./
     steps:
