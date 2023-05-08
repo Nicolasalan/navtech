@@ -13,22 +13,22 @@ help:
 .PHONY: build
 build:
 	@echo "Building docker image ..."
-	@docker build --platform linux/amd64 -t navtech . 
+	@docker build --platform linux/arm64 -t navtech . 
 
 # === Clean docker ===
 .PHONY: clean
 clean:
 	@echo "Closing all running docker containers ..."
-	@sudo docker system prune -f
+	@docker system prune -f
 
 # === Run terminal docker ===
 .PHONY: terminal
 terminal:
 	@echo "Terminal docker ..."
-	@sudo docker run --platform linux/amd64 -it --net=host ${DOCKER_VOLUMES} navtech bash
+	@docker run --platform linux/arm64 -it  --rm --net=host ${DOCKER_VOLUMES} navtech bash
 
 # === Start train docker ===
 .PHONY: start 
 start:
 	@echo "Starting Follow Waypoints ..."
-	@sudo docker run --platform linux/amd64 -it --net=host ${DOCKER_VOLUMES} navtech bash -c "source /opt/ros/humble/setup.bash && ros2 launch robot_nav start.launch.py"
+	@docker run --platform linux/arm64 -it --net=host ${DOCKER_VOLUMES} navtech bash -c "ls"

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:property name="PI"                       value="3.14159265" />
+  <xacro:property name="robot_scale"              value="${1/1000}" />
+
+  <xacro:property name="base_plat_mass"           value="10" />
+  <xacro:property name="base_plat_size_x"         value="${556  * robot_scale}" />
+  <xacro:property name="base_plat_size_y1"        value="${189  * robot_scale}" />
+  <xacro:property name="base_plat_size_y2"        value="${456  * robot_scale}" />
+  <xacro:property name="base_plat_size_z"         value="${233  * robot_scale}" />
+
+  <xacro:property name="base_motor_mass"          value="1" />
+  <xacro:property name="base_motor_diameter"      value="${50   * robot_scale}" />
+  <xacro:property name="base_motor_lenght"        value="${135  * robot_scale}" />
+  <xacro:property name="base_motor_gap"           value="${20   * robot_scale}" />
+
+  <xacro:property name="base_wheel_wheel_torque"  value="10" />
+  <xacro:property name="base_wheel_mass"          value="1" />
+  <xacro:property name="base_wheel_diameter"      value="${100  * robot_scale}" />
+  <xacro:property name="base_wheel_lenght"        value="${30   * robot_scale}" />
+  <xacro:property name="base_wheel_gap2base"      value="${3    * robot_scale}" />
+  <xacro:property name="base_wheel_separation"    value="${273  * robot_scale}" />
+
+  <xacro:property name="base_caster_mass"         value="0.01" />
+  <xacro:property name="base_caster_separation_x" value="${300  * robot_scale}" />
+  <xacro:property name="base_caster_separation_y" value="${160  * robot_scale}" />
+  <xacro:property name="base_caster_diameter"     value="${65.5 * robot_scale}" />
+
+  <xacro:property name="rplidar_s2_mass"        value="0.01"/>
+  <xacro:property name="rplidar_s2_size_x"      value="${100  * robot_scale}"/>
+  <xacro:property name="rplidar_s2_size_y"      value="${70   * robot_scale}"/>
+  <xacro:property name="rplidar_s2_size_z"      value="${60   * robot_scale}"/>
+
+</robot>

@@ -82,7 +82,6 @@ toalhas sujas por limpas”.
 
 ## Phase 4: Assembly
 
-- [ ] Placa de circuito impresso (PCBs)
 - [ ] Montagem do robô
 - [ ] Impressão 3D
 
@@ -90,28 +89,19 @@ toalhas sujas por limpas”.
 
 ### Requirements
 
-- [ ] Git
-- [ ] Docker
-- [ ] VSCode
-- [ ] ROS Noetic
-- [ ] Gazebo
-- [ ] Python 3.8
-- [ ] OpenCV
-- [ ] PyTorch
-- [ ] Arduino IDE
-- [ ] C++17
-- [ ] CMake
-- [ ] Make
+- [x] Git
+- [x] Docker
+- [x] VSCode
+- [x] ROS 2 Humble
+- [x] Python 3.8
+- [x] Arduino IDE
+- [x] Make
 
 ### Applications
 
 - [ ] Robot description
-- [ ] Robot control
-- [ ] Robot perception
-- [ ] Robot learning
-- [ ] Robot driver
-- [ ] robot interface
-- [ ] robot test integration
+- [x] Robot navigation
+- [x] Robot driver
 
 ## Phase 6: Testing
 

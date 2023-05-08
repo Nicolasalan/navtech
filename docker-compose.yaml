@@ -1,4 +1,5 @@
-version: "2"
+version: '2'
+
 services:
 
   micro-ros-agent:
@@ -12,8 +13,8 @@ services:
     tty: true
     stdin_open: true
 
-  navtech:
-    platform: linux/amd64
+  setup:
+    image: navtech:latest
     build: 
       context: .
       dockerfile: Dockerfile
@@ -23,10 +24,14 @@ services:
       - micro-ros-agent
     volumes:
       - ${PWD}/src:/ws_navtech/src:rw
-    network_mode: host
+    security_opt:
+      - seccomp:unconfined
     ipc: host
     privileged: true
     stdin_open: true
-    tty: true
-    command: ['make', 'start']
-
+    tty: true 
+    command:
+      - /bin/bash
+      - -c
+      - |
+        ls 

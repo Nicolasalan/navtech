@@ -1,0 +1,15 @@
+local_costmap:
+  footprint:
+    [ [ 0.28,  0.23],
+      [ 0.28, -0.23],
+      [-0.18, -0.23],
+      [-0.18,  0.23] ]
+  footprint_padding: 0.05
+
+global_costmap:
+  footprint:
+    [ [ 0.28,  0.23],
+      [ 0.28, -0.23],
+      [-0.18, -0.23],
+      [-0.18,  0.23] ]
+  footprint_padding: 0.05
