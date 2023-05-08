@@ -18,12 +18,10 @@ jobs:
   Build:
     needs: [Checkout]
     runs-on: macos-latest
-    env:
-      working-directory: ./
     steps:
       - name: Build the docker image
-        run: make build
-        working-directory: ${{env.working-directory}}
+        run: docker build --platform linux/arm64 -t navtech . 
+
 
   Env:
     needs: [Build]
