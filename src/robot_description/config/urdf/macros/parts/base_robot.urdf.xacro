@@ -14,25 +14,27 @@
       <child link="${name}"/>
     </joint>
 
-    <!-- joint: base -> right_motor -->
-    <joint name="${name}_to_right_motor" type="fixed">
-      <origin xyz="${ 0.42/2 - 0.075 } ${-(base_motor_lenght/2 + base_motor_gap/2)} ${0.03-base_motor_diameter/2}" rpy="${-PI/2} 0 0"/>
-      <parent link="${name}"/>
-      <child link="right_motor"/>
-    </joint>
-
-    <!-- joint: base -> left_motor -->
-    <joint name="${name}_to_left_motor" type="fixed">
-      <origin xyz="${ 0.42/2 - 0.075 } ${(base_motor_lenght/2 + base_motor_gap/2)} ${0.03-base_motor_diameter/2}" rpy="${-PI/2} 0 0"/>
-      <parent link="${name}"/>
-      <child link="left_motor"/>
-    </joint>
-
     <!-- joint: right_motor -> right_wheel -->
     <joint name="right_motor_to_right_wheel" type="continuous">
       <origin xyz="0 0 ${ -(base_wheel_lenght/2 + base_motor_lenght/2 + base_wheel_gap2base) }" rpy="0 0 0"/>
       <parent link="right_motor"/>
       <child link="right_wheel"/>
+      <axis xyz="0 0 1"/>
+    </joint>
+
+    <!-- joint: left_motor -> left_wheel -->
+    <joint name="left_motor_to_left_wheel" type="continuous">
+      <origin xyz="0 0 ${(base_wheel_lenght/2 + base_motor_lenght/2 + base_wheel_gap2base) }" rpy="0 0 0"/>
+      <parent link="left_motor"/>
+      <child link="left_wheel"/>
+      <axis xyz="0 0 1"/>
+    </joint>
+
+    <!-- joint: left_motor -> left_wheel -->
+    <joint name="left_motor_to_left_wheel" type="continuous">
+      <origin xyz="0 0 ${(base_wheel_lenght/2 + base_motor_lenght/2 + base_wheel_gap2base) }" rpy="0 0 0"/>
+      <parent link="left_motor"/>
+      <child link="left_wheel"/>
       <axis xyz="0 0 1"/>
     </joint>
 

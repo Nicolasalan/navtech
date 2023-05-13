@@ -20,8 +20,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Build the docker image
-        run: docker build --platform linux/arm64 -t navtech . 
-
+        run: docker build --platform linux/arm64 -t navtech .
 
   Env:
     needs: [Build]
