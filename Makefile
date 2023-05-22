@@ -1,5 +1,22 @@
 DOCKER_VOLUMES = \
-	--volume="$(shell pwd)/src":"/ws_navtech/src/":rw \
+	--volume="/tmp/.X11-unix:/tmp/.X11-unix" \
+  	--volume="${HOME}/.Xauthority:/root/.Xauthority:rw" \
+ 	--volume="/dev:/dev" \
+	--volume="${PWD}/src":"/ws_navtech/src/":rw 
+
+DOCKER_ENV_VARS = \
+ 	--env="DISPLAY=${DISPLAY}" \
+ 	--env="QT_X11_NO_MITSHM=1" \
+ 	--ipc=host \
+ 	--privileged 
+
+DOCKER_ARGS = ${DOCKER_VOLUMES} ${DOCKER_ENV_VARS}
+
+define xhost_activate
+	@echo "Enabling local xhost sharing:"
+	@echo "  Display: ${DISPLAY}"
+	@xhost local:root
+endef
 
 .PHONY: help
 help:
@@ -25,10 +42,11 @@ clean:
 .PHONY: terminal
 terminal:
 	@echo "Terminal docker ..."
-	@docker run --platform linux/arm64 -it  --rm --net=host ${DOCKER_VOLUMES} navtech bash
+	@xhost local:root
+	@docker run --platform linux/arm64 -it  --rm --net=host ${DOCKER_ARGS} navtech bash
 
 # === Start train docker ===
 .PHONY: start 
 start:
 	@echo "Starting Follow Waypoints ..."
-	@docker run --platform linux/arm64 -it --net=host ${DOCKER_VOLUMES} navtech bash -c "ls"
+	@docker run --platform linux/arm64 -it --net=host ${DOCKER_ARGS} navtech bash -c "ls"

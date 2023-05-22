@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="base" params="name parent *origin">
+
+    <!-- ############################ -->
+    <!-- ########## JOINTS ########## -->
+    <!-- ############################ -->
+
+     <!-- joint: base_footprint -> base -->
+    <joint name="${parent}_to_${name}" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent}"/>
+      <child link="${name}"/>
+    </joint>
+
+    <!-- ############################ -->
+    <!-- ########## LINKS ########### -->
+    <!-- ############################ -->
+
+    <!-- ########## BASE ############ -->
+
+    <!-- link: base -->
+    <link name="${name}">
+      <!-- plat -->
+      <collision>
+        <origin xyz="0.0 0.0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://robot_description/meshes/base.dae" scale="${robot_scale} ${robot_scale} ${robot_scale}"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="0.0 0.0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://robot_description/meshes/base.dae" scale="${robot_scale} ${robot_scale} ${robot_scale}"/>
+        </geometry>
+      </visual>
+      <!-- power_source -->
+      <xacro:create_box m="2" x="0.1" y="0.2" z="0.05">
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+      </xacro:create_box>
+
+    </link>
+
+  </xacro:macro>
+
+  <xacro:macro name="gazebo_base" params="reference robotBaseFrame ">
+    <gazebo>
+
+      <plugin name="${reference}_controller" filename="libgazebo_ros_diff_drive.so">
+    
+        <alwaysOn>true</alwaysOn>
+
+        <commandTopic>cmd_vel</commandTopic>
+        <updateRate>20</updateRate>
+
+        <odometryTopic>odom</odometryTopic>
+        <odometryFrame>odom</odometryFrame>
+        <odometryRate>100.0</odometryRate>
+
+        <robotBaseFrame>${robotBaseFrame}</robotBaseFrame>
+
+        <odometrySource>world</odometrySource>
+        <publishOdomTF>true</publishOdomTF>
+        <publishWheelTF>false</publishWheelTF>
+        <publishTf>true</publishTf>
+        <publishWheelJointState>true</publishWheelJointState>
+        <legacyMode>false</legacyMode>
+        <wheelAcceleration>1</wheelAcceleration>
+        <rosDebugLevel>na</rosDebugLevel>
+    
+      </plugin>
+    </gazebo>
+  </xacro:macro>
+
+</robot>

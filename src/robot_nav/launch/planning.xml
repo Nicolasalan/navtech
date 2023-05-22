@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="robot_name"          default="woody"/>
+  <arg name="global_planner"      default="navfn/NavfnROS"/>
+  <arg name="local_planner"       default="teb_local_planner/TebLocalPlannerROS"/>
+  <arg name="global_layers"       default="[ {name: static_layer, type: 'costmap_2d::StaticLayer'}, {name: obstacles_layer, type: 'costmap_2d::VoxelLayer'}, {name: inflation_layer, type: 'costmap_2d::InflationLayer'}]" />
+  <arg name="local_layers"        default="[ {name: obstacles_layer, type: 'costmap_2d::VoxelLayer'}, {name: inflation_layer, type: 'costmap_2d::InflationLayer'}]"/>
+  <arg name="observation_sources" default="laser_scan_observation"/>
+
+  <arg name="xy_goal_tolerance"   default="0.1"/>
+  <arg name="yaw_goal_tolerance"  default="0.05"/>
+
+  <node name="move_base" pkg="move_base" type="move_base"
+    respawn="true" output="screen">
+
+    <rosparam command="load" file="$(find robot_nav)/config/navigation/move_base_params.yaml"/>
+    <param name="base_global_planner" value="$(arg global_planner)"/>
+    <param name="base_local_planner" value="$(arg local_planner)"/>
+
+    <rosparam command="load" file="$(find robot_nav)/config/navigation/costmap_common_params.yaml" ns="global_costmap"/>
+    <rosparam command="load" file="$(find robot_nav)/config/navigation/costmap_common_params.yaml" ns="local_costmap"/>
+    <rosparam command="load" file="$(find robot_nav)/config/navigation/costmap_global_params.yaml"/>
+    <rosparam command="load" file="$(find robot_nav)/config/navigation/costmap_local_params.yaml"/>
+
+    <rosparam param="global_costmap/plugins" subst_value="true">$(arg global_layers)</rosparam>
+    <rosparam param="local_costmap/plugins" subst_value="true">$(arg local_layers)</rosparam>
+
+    <param name="global_costmap/obstacles_layer/observation_sources" value="$(arg observation_sources)"/>
+    <param name="local_costmap/obstacles_layer/observation_sources"  value="$(arg observation_sources)"/>
+
+    <rosparam command="load" file="$(find robot_nav)/config/navigation/global_planner_params.yaml"/>
+    <rosparam command="load" file="$(find robot_nav)/config/navigation/local_planner_base_params.yaml"/>
+    <rosparam command="load" file="$(find robot_nav)/config/navigation/local_planner_dwa_params.yaml"/>
+    <rosparam command="load" file="$(find robot_nav)/config/navigation/local_planner_eband_params.yaml"/>
+    <rosparam command="load" file="$(find robot_nav)/config/navigation/local_planner_teb_params.yaml"/>
+
+    <param name="TrajectoryPlannerROS/xy_goal_tolerance"  value="$(arg xy_goal_tolerance)"/>
+    <param name="DWAPlannerROS/xy_goal_tolerance"         value="$(arg xy_goal_tolerance)"/>
+    <param name="EBandPlannerROS/xy_goal_tolerance"       value="$(arg xy_goal_tolerance)"/>
+    <param name="TebLocalPlannerROS/xy_goal_tolerance"    value="$(arg xy_goal_tolerance)"/>
+
+    <param name="TrajectoryPlannerROS/yaw_goal_tolerance" value="$(arg yaw_goal_tolerance)"/>
+    <param name="DWAPlannerROS/yaw_goal_tolerance"        value="$(arg yaw_goal_tolerance)"/>
+    <param name="EBandPlannerROS/yaw_goal_tolerance"      value="$(arg yaw_goal_tolerance)"/>
+    <param name="TebLocalPlannerROS/yaw_goal_tolerance"   value="$(arg yaw_goal_tolerance)"/>
+
+
+    <rosparam command="load" file="$(find robot_description)/config/$(arg robot_name)/navigation.yaml"/>
+
+  </node>
+
+</launch>

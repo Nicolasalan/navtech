@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- start slam_gmapping -->
+  <node name="gmapping" pkg="gmapping" type="slam_gmapping" output="screen"
+    args="scan:=base_scan _base_frame:=base_link">
+     <!-- args="scan:=scan_filtered _base_frame:=base_link" --> 
+    <!-- <param name="maxRange" value="8.0"/> -->
+    <!-- <param name="maxURange" value="8.0"/> -->
+  </node>
+
+</launch>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="robot_name"            default="buzz"/>
+  <arg name="x"                     default="0"/>
+  <arg name="y"                     default="0"/>
+  <arg name="yaw"                   default="0"/>
+
+  <arg name="map_name"              default="regus"/>
+  <arg name="map_resource"          default="$(find robot_nav)/data/map"/>
+
+  <arg name="global_planner"        default="navfn/NavfnROS"/>
+  <arg name="local_planner"         default="teb_local_planner/TebLocalPlannerROS"/>
+  <!-- <arg name="local_planner"         default="dwa_local_planner/DWAPlannerROS"/> -->
+  <arg name="global_layers"         default="[ {name: static_layer, type: 'costmap_2d::StaticLayer'}, {name: inflation_layer, type: 'costmap_2d::InflationLayer'}]" />
+  <arg name="local_layers"          default="[ {name: obstacles_layer, type: 'costmap_2d::VoxelLayer'}, {name: inflation_layer, type: 'costmap_2d::InflationLayer'}]"/>
+  <arg name="observation_sources"   default="laser_scan_observation laser_scan_top_observation"/>
+
+  <arg name="xy_goal_tolerance"     default="0.1"/>
+  <arg name="yaw_goal_tolerance"    default="0.05"/>
+
+
+
+
+<!-- ####################################################################### -->
+
+  <!-- mapping -->
+  <node name="map_server" pkg="map_server" type="map_server" output="screen"
+    args="$(arg map_resource)/$(arg map_name)/map.yaml"/>
+
+  <!-- localization -->
+  <include file="$(find robot_nav)/launch/localization.xml">
+    <arg name="y"    default="$(arg x)"/>
+    <arg name="x"    default="$(arg y)"/>
+    <arg name="yaw"  default="$(arg yaw)"/>
+  </include>
+
+  <!-- planning -->
+  <include file="$(find robot_nav)/launch/planning.xml">
+    <arg name="robot_name"          default="$(arg robot_name)"/>
+    <arg name="global_planner"      default="$(arg global_planner)"/>
+    <arg name="local_planner"       default="$(arg local_planner)"/>
+    <arg name="global_layers"       default="$(arg global_layers)"/>
+    <arg name="local_layers"        default="$(arg local_layers)"/>
+    <arg name="observation_sources" default="$(arg observation_sources)"/>
+    <arg name="xy_goal_tolerance"   default="$(arg xy_goal_tolerance)"/>
+    <arg name="yaw_goal_tolerance"  default="$(arg yaw_goal_tolerance)"/>
+  </include>
+
+  <!-- utils -->
+  <node pkg="robot_nav" type="utils.py" name="robot_base_utils">
+    <param name="enable_clear_costmap" value="True"/>
+    <param name="enable_amcl_update" value="True"/>
+    <param name="clear_costmap_period" value="10"/>
+    <param name="amcl_updates" value="10"/>
+  </node> 
+
+</launch>

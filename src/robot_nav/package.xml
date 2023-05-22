@@ -1,18 +1,25 @@
 <?xml version="1.0"?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="3">
+<package format="2">
+
   <name>robot_nav</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="root@todo.todo">root</maintainer>
-  <license>TODO: License declaration</license>
+  <description>The robot_nav package</description>
 
- <test_depend>ament_copyright</test_depend>
- <test_depend>ament_flake8</test_depend>
- <test_depend>ament_pep257</test_depend>
- <test_depend>python3-pytest</test_depend>
+  <maintainer email="nicolasalangrotti03@gmail.com">Nicolas Alan</maintainer>
+  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
+  <license>TODO</license>
+  <author email="nicolasalangrotti03@gmail.com">Nicolas Alan</author>
 
- <export>
-   <build_type>ament_python</build_type>
- </export>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>tf</build_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>srv</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <build_export_depend>tf</build_export_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>tf</exec_depend>
+
 </package>

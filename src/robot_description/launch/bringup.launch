@@ -1,0 +1,44 @@
+<launch>
+
+<!--######################## argument list #################################-->
+
+  <arg name="x"                   default="0"/>
+  <arg name="y"                   default="0"/>
+  <arg name="yaw"                 default="0"/>
+  <arg name="world_name"          default="bookstore"/>
+  <arg name="simulation"          default="true"/>
+  <arg name="gui_simulation"      default="false"/>
+  <arg name="gui_rviz"            default="true"/>
+  <arg name="rviz_file"           default="$(find robot_description)/rviz/robot.rviz"/>
+
+<!--######################## simulation or real ###########################-->
+
+  <group if="$(arg simulation)">
+    <include file="$(find robot_description)/launch/simulation.xml">
+      <arg name="x"           default="$(arg x)"/>
+      <arg name="y"           default="$(arg y)"/>
+      <arg name="yaw"         default="$(arg yaw)"/>
+      <arg name="world_name"  default="$(arg world_name)"/>
+      <arg name="gui"         default="$(arg gui_simulation)"/>
+    </include>
+  </group>
+
+  <group unless="$(arg simulation)">
+    <include file="$(find robot_description)/launch/devices.xml">
+    </include>
+  </group>
+
+<!--######################## load robot ####################################-->
+
+  <include file="$(find robot_description)/launch/load_robot.xml">
+    <arg name="use_sim_time" default="$(arg simulation)"/>
+  </include>
+
+<!--######################## interface  ####################################-->
+
+  <include file="$(find robot_description)/launch/interface.xml">
+    <arg name="gui_rviz"   	        default="$(arg gui_rviz)"/>
+    <arg name="rviz_file"           default="$(arg rviz_file)"/>
+  </include>
+   
+</launch>

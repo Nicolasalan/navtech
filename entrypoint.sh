@@ -1,11 +1,13 @@
 #!/bin/bash
+# Source ROS and Catkin workspaces
+source /opt/ros/noetic/setup.bash
+source /usr/share/gazebo-11/setup.sh
+
+rm -rf build/ devel/
 
 # Execute the command passed into this entrypoint
-#source /opt/ros/humble/setup.bash && source /ws_navtech/install/setup.bash && xacro /ws_navtech/install/robot_description/share/robot_description/config/robot/robot.urdf.xacro -o /ws_navtech/install/robot_description/share/robot_description/config/robot/robot.urdf
+catkin build
 
-colcon build
-
-source /opt/ros/humble/setup.bash 
-source install/setup.bash 
+source devel/setup.bash
 
 exec "$@"

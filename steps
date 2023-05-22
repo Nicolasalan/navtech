@@ -1,0 +1,3 @@
+source /opt/ros/humble/setup.bash && source /ws_navtech/install/setup.bash && xacro /ws_navtech/install/robot_description/share/robot_description/config/robot/robot.urdf.xacro -o /ws_navtech/install/robot_description/share/robot_description/config/robot/robot.urdf
+
+ros2 launch robot_description load_robot.launch.py
