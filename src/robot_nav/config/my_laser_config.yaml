@@ -1,7 +1,0 @@
-scan_filter_chain:
-- name: mapping
-  type: laser_filters/LaserScanRangeFilter
-  params:
-    use_message_range_limits: false
-    upper_threshold: 8
-    upper_replacement_value: 8

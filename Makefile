@@ -2,7 +2,7 @@ DOCKER_VOLUMES = \
 	--volume="/tmp/.X11-unix:/tmp/.X11-unix" \
   	--volume="${HOME}/.Xauthority:/root/.Xauthority:rw" \
  	--volume="/dev:/dev" \
-	--volume="${PWD}/src":"/ws_navtech/src/":rw 
+	--volume="$(shell pwd)/src":"/ws_navtech/src/":rw 
 
 DOCKER_ENV_VARS = \
  	--env="DISPLAY=${DISPLAY}" \
@@ -26,27 +26,33 @@ help:
 	@echo '  start						--Start training session'
 	@echo '  terminal					--Start terminal in docker'
 
-# === Build docker ===
+# === Build docker === #
 .PHONY: build
 build:
 	@echo "Building docker image ..."
-	@docker build --platform linux/arm64 -t navtech . 
+	@sudo docker build -t navtech . 
 
-# === Clean docker ===
+# === Clean docker === #
 .PHONY: clean
 clean:
 	@echo "Closing all running docker containers ..."
-	@docker system prune -f
+	@sudo docker system prune -f
 
-# === Run terminal docker ===
+# === Run terminal docker === #
 .PHONY: terminal
 terminal:
 	@echo "Terminal docker ..."
 	@xhost local:root
-	@docker run --platform linux/arm64 -it  --rm --net=host ${DOCKER_ARGS} navtech bash
+	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash
 
-# === Start train docker ===
-.PHONY: start 
-start:
+# === Start TF docker === #
+.PHONY: tf 
+tf:
 	@echo "Starting Follow Waypoints ..."
-	@docker run --platform linux/arm64 -it --net=host ${DOCKER_ARGS} navtech bash -c "ls"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot_description robot.launch.py"
+
+# === Rviz2 docker === #
+.PHONY: rviz 
+rviz:
+	@echo "Starting Follow Waypoints ..."
+	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "rviz2"

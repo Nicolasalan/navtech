@@ -1,13 +1,11 @@
 #!/bin/bash
-# Source ROS and Catkin workspaces
-source /opt/ros/noetic/setup.bash
-source /usr/share/gazebo-11/setup.sh
-
-rm -rf build/ devel/
 
 # Execute the command passed into this entrypoint
-catkin build
+echo "Building workspace"
+colcon build --symlink-install
 
-source devel/setup.bash
+echo "Sourcing Humble"
+source /opt/ros/humble/setup.bash 
+source install/setup.bash
 
 exec "$@"

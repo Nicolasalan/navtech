@@ -1,2 +1,0 @@
-KERNEL=="ttyACM*", ATTRS{idVendor}=="2341",ATTRS{idProduct}=="003d", SYMLINK+="base"
-KERNEL=="ttyUSB*", ATTRS{idVendor}=="10c4",ATTRS{idProduct}=="ea60", ATTRS{serial}=="048e2cae1909ec1180634397cf41db95", SYMLINK+="laser_rplidar_s1"

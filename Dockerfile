@@ -1,5 +1,4 @@
-#FROM arm64v8/ros:noetic-ros-base
-FROM osrf/ros:noetic-desktop-full
+FROM osrf/ros:humble-desktop-full
 
 # Set the locale
 ARG DEBIAN_FRONTEND=noninteractive 
@@ -8,86 +7,51 @@ ARG DEBIAN_FRONTEND=noninteractive
 SHELL [ "/bin/bash" , "-c"]
 
 # Setup Environment
-RUN apt-get update 
-
-RUN apt-get install -q -y --no-install-recommends \
-  build-essential \
-  apt-utils \
-  cmake \
-  g++ \
-  git \
-  gnupg gnupg1 gnupg2 \
-  libcanberra-gtk* \
-  python3-catkin-tools \
-  python3-pip \
-  python3-tk \
-  python3-rosdep \
-  apt-transport-https \
-  wget \
-  xterm \
-  curl 
-
-# ROS packages
-RUN apt-get install -y --no-install-recommends \
-  ros-noetic-py-trees-ros \
-  ros-noetic-py-trees \
-  ros-noetic-smach-ros \
-  ros-noetic-rviz \
-  ros-noetic-gazebo-ros \
-  ros-noetic-gazebo-ros-pkgs 
+RUN apt-get update \
+ && apt-get install -yq python3-pip apt-utils git vim python3-colcon-common-extensions
 
 # Install Dependencies Robot Navigation
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    ros-noetic-navigation \
-    ros-noetic-slam-gmapping \
-    ros-noetic-base-local-planner \
-    ros-noetic-dwa-local-planner \
-    ros-noetic-teb-local-planner \
-    ros-noetic-ros-controllers \
-    ros-noetic-robot-localization 
+    ros-humble-navigation2 \
+    ros-humble-nav2-bringup \
+    ros-humble-cartographer-ros \
+    ros-humble-ament-package \
+    ros-humble-robot-localization 
 
 # Install Dependencies Robot Description
 RUN apt-get install -y --no-install-recommends \
-    ros-noetic-gazebo-ros \
-    ros-noetic-xacro \
-    ros-noetic-robot-state-controller \
-    ros-noetic-robot-state-publisher \
-    ros-noetic-joint-state-controller \
-    ros-noetic-joint-state-publisher \
-    ros-noetic-driver-base \
-    ros-noetic-rosserial-arduino \
-    ros-noetic-rplidar-ros 
+    apt-utils \
+    ros-humble-rqt-reconfigure \
+    ros-humble-rviz2 \
+    ros-humble-gazebo-ros \
+    ros-humble-gazebo-ros-pkgs \
+    ros-humble-xacro \
+    ros-humble-robot-state-publisher \
+    ros-humble-joint-state-publisher \
+    ros-humble-rplidar-ros \
+    ros-humble-teleop-twist-keyboard \
+    ros-humble-tf-transformations \
+    xterm
 
 # Install Dependencies with pip3
-RUN pip3 install transforms3d setuptools==58.2.0 pyserial smbus trimesh scipy pandas
- 
-# Create Colcon workspace
-RUN mkdir -p /ws_navtech
-WORKDIR /ws_navtech
+RUN pip3 install transforms3d setuptools==58.2.0 pyserial smbus trimesh scipy pandas 
 
-# Create srec directory and navtech
-RUN mkdir -p src/3rd
-RUN mkdir -p src/navtech
+# Create Colcon workspace
+RUN mkdir /ws_navtech
 
 # Copy Entry Point and Makefile
-COPY entrypoint.sh entrypoint.sh
-COPY ./Makefile Makefile
+COPY entrypoint.sh /ws_navtech/entrypoint.sh
+COPY ./Makefile /ws_navtech/Makefile
 
 # Copy package ros
-COPY ./src/robot_nav /src/navtech/robot_nav
-COPY ./src/robot_description /src/navtech/robot_description
-
-# Clone lidar package
-RUN cd /ws_navtech/src/3rd \
- && git clone https://github.com/Slamtec/rplidar_ros.git 
+COPY src/navtech/robot_description /ws_navtech/src/navtech/robot_description
 
 # Source ROS and Build
-RUN cd /ws_navtech && source /opt/ros/noetic/setup.bash && catkin build
+RUN cd /ws_navtech && source /opt/ros/humble/setup.bash && colcon build --symlink-install
 
-# Remove display warnings
-RUN mkdir /tmp/runtime-root
-ENV XDG_RUNTIME_DIR "/tmp/runtime-root"
-ENV NO_AT_BRIDGE 1
+RUN echo "source /ws_navtech/install/setup.bash" >> ~/.bashrc
+
+WORKDIR /ws_navtech
 
 # Run command entrypoint
 ENTRYPOINT [ "./entrypoint.sh" ] 
