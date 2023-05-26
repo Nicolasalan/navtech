@@ -12,7 +12,7 @@ import xacro
 def generate_launch_description():
 
     # Check if we're told to use sim time
-    use_sim_time = LaunchConfiguration('use_sim_time')
+    use_sim_time = LaunchConfiguration('use_sim_time', default='True')
 
     # Process the URDF file
     pkg_path = os.path.join(get_package_share_directory('robot_description'))
