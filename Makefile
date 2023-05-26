@@ -45,14 +45,14 @@ terminal:
 	@xhost local:root
 	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash
 
-# === Start TF docker === #
+# === Start TFs docker === #
 .PHONY: tf 
 tf:
-	@echo "Starting Follow Waypoints ..."
+	@echo "Starting TFs ..."
 	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot_description robot.launch.py"
 
-# === Rviz2 docker === #
-.PHONY: rviz 
-rviz:
-	@echo "Starting Follow Waypoints ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "rviz2 -d /ws_navtech/src/navtech/robot_description/config/robot.rviz"
+# === Gazebo docker === #
+.PHONY: sim 
+sim:
+	@echo "Starting Simulations ..."
+	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot_description sim.launch.py"
