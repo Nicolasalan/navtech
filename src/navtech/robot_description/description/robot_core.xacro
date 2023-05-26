@@ -42,67 +42,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.125" length="0.006"/>
-            </geometry>
-            <material name="white"/>
-        </visual>
-    </link>
-
-    <!-- ######## PLATFORM 1 ######## -->
-
-    <!-- JOINT -->
-    <joint name="platform1_joint" type="fixed">
-        <parent link="chassis"/>
-        <child link="platform1"/>
-        <origin xyz="0 0.07 0"/>
-    </joint>
-
-    <!-- LINK -->
-    <link name="platform1">
-        <visual>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <geometry>
-                <cylinder radius="0.125" length="0.006"/>
-            </geometry>
-            <material name="white"/>
-        </visual>
-    </link>
-
-    <!-- ######## PLATFORM 2 ######## -->
-
-    <!-- JOINT -->
-    <joint name="platform2_joint" type="fixed">
-        <parent link="chassis"/>
-        <child link="platform2"/>
-        <origin xyz="0 -0.07 0"/>
-    </joint>
-
-    <!-- LINK -->
-    <link name="platform2">
-        <visual>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <geometry>
-                <cylinder radius="0.125" length="0.006"/>
-            </geometry>
-            <material name="white"/>
-        </visual>
-    </link>
-
-    <!-- ######## PLATFORM 3 ######## -->
-
-    <!-- JOINT -->
-    <joint name="platform3_joint" type="fixed">
-        <parent link="chassis"/>
-        <child link="platform3"/>
-        <origin xyz="0 0.14 0"/>
-    </joint>
-
-    <!-- LINK -->
-    <link name="platform3">
-        <visual>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <geometry>
-                <cylinder radius="0.125" length="0.006"/>
+                <mesh filename="file://$(find robot_description)/meshes/base.dae" />
             </geometry>
             <material name="white"/>
         </visual>
@@ -123,7 +63,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.05" length="0.01"/>
+                <mesh filename="file://$(find robot_description)/meshes/wheel.dae" />
             </geometry>
             <material name="blue"/>
         </visual>
@@ -144,7 +84,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.05" length="0.01"/>
+                <mesh filename="file://$(find robot_description)/meshes/wheel.dae" />
             </geometry>
             <material name="blue"/>
         </visual>
@@ -165,7 +105,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.05" length="0.01"/>
+                <mesh filename="file://$(find robot_description)/meshes/wheel.dae" />
             </geometry>
             <material name="blue"/>
         </visual>
@@ -186,7 +126,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.05" length="0.01"/>
+                <mesh filename="file://$(find robot_description)/meshes/wheel.dae" />
             </geometry>
             <material name="blue"/>
         </visual>
