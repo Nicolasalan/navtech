@@ -48,18 +48,18 @@
         </visual>
     </link>
 
-    <!-- ######## LEFT WHEEL ######## -->
+    <!-- ######## LEFT FRONT WHEEL ######## -->
 
     <!-- JOINT -->
-    <joint name="left_wheel_joint" type="continuous">
+    <joint name="left_front_wheel_joint" type="continuous">
         <parent link="base_link"/>
-        <child link="left_wheel"/>
-        <origin xyz="0 0.125 0" rpy="${pi/2} 0 0"/>
+        <child link="left_front_wheel"/>
+        <origin xyz="0.125 0.125 0" rpy="${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
     </joint>
 
     <!-- LINK -->
-    <link name="left_wheel">
+    <link name="left_front_wheel">
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
@@ -69,18 +69,18 @@
         </visual>
     </link>
 
-    <!-- ######## RIGHT WHEEL ######## -->
+    <!-- ######## RIGHT FRONT WHEEL ######## -->
 
     <!-- JOINT -->
-    <joint name="right_wheel_joint" type="continuous">
+    <joint name="right_front_wheel_joint" type="continuous">
         <parent link="base_link"/>
-        <child link="right_wheel"/>
-        <origin xyz="0 -0.125 0" rpy="${pi/2} 0 0"/>
+        <child link="right_front_wheel"/>
+        <origin xyz="0.125 -0.125 0" rpy="${pi/2} 0 0"/>
         <axis xyz="0 0 -1"/>
     </joint>
 
     <!-- LINK -->
-    <link name="right_wheel">
+    <link name="right_front_wheel">
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
@@ -89,5 +89,48 @@
             <material name="blue"/>
         </visual>
     </link>
+
+    <!-- ######## LEFT REAR WHEEL ######## -->
+
+    <!-- JOINT -->
+    <joint name="left_rear_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="left_rear_wheel"/>
+        <origin xyz="-0.125 0.125 0" rpy="${pi/2} 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <!-- LINK -->
+    <link name="left_rear_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.05" length="0.01"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+    </link>
+
+    <!-- ######## RIGHT REAR WHEEL ######## -->
+
+    <!-- JOINT -->
+    <joint name="right_rear_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="right_rear_wheel"/>
+        <origin xyz="-0.125 -0.125 0" rpy="${pi/2} 0 0"/>
+        <axis xyz="0 0 -1"/>
+    </joint>
+
+    <!-- LINK -->
+    <link name="right_rear_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.05" length="0.01"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+    </link>
+
 
 </robot>
