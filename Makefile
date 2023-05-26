@@ -55,4 +55,4 @@ tf:
 .PHONY: rviz 
 rviz:
 	@echo "Starting Follow Waypoints ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "rviz2"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "rviz2 -d /ws_navtech/src/navtech/robot_description/config/robot.rviz"

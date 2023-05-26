@@ -31,6 +31,7 @@ RUN apt-get install -y --no-install-recommends \
     ros-humble-rplidar-ros \
     ros-humble-teleop-twist-keyboard \
     ros-humble-tf-transformations \
+    ros-humble-joint-state-publisher-gui \
     xterm
 
 # Install Dependencies with pip3
