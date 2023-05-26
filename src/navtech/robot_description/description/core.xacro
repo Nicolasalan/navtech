@@ -30,6 +30,15 @@
 
     </link>
 
+    <!-- FOOTPRINT -->
+    <link name='base_footprint'/>
+    <joint name="joint_base_footprint_to_base" type="fixed">
+      <origin xyz="0 0 0"/>
+      <parent link="base_footprint"/>
+      <child link="base"/>
+    </joint>
+
+
     <!-- ######## CHASSIS ######## -->
 
     <!-- JOINT -->
