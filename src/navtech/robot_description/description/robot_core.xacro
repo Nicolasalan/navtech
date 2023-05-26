@@ -108,9 +108,9 @@
         </visual>
     </link>
 
-    <!-- ######## LEFT WHEEL ######## -->
+    <!-- ######## RODA ESQUERDA ######## -->
 
-    <!-- JOINT -->
+    <!-- JUNTA -->
     <joint name="left_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="left_wheel"/>
@@ -129,9 +129,9 @@
         </visual>
     </link>
 
-    <!-- ######## RIGHT WHEEL ######## -->
+    <!-- ######## RODA DIREITA ######## -->
 
-    <!-- JOINT -->
+    <!-- JUNTA -->
     <joint name="right_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="right_wheel"/>
@@ -150,9 +150,9 @@
         </visual>
     </link>
 
-    <!-- ######## FRONT WHEEL ######## -->
+    <!-- ######## RODA DIANTEIRA ######## -->
 
-    <!-- JOINT -->
+    <!-- JUNTA -->
     <joint name="front_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="front_wheel"/>
@@ -171,9 +171,9 @@
         </visual>
     </link>
 
-    <!-- ######## BACK WHEEL ######## -->
+    <!-- ######## RODA TRASEIRA ######## -->
 
-    <!-- JOINT -->
+    <!-- JUNTA -->
     <joint name="back_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="back_wheel"/>
@@ -191,5 +191,6 @@
             <material name="blue"/>
         </visual>
     </link>
+
 
 </robot>
