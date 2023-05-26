@@ -56,3 +56,9 @@ tf:
 sim:
 	@echo "Starting Simulations ..."
 	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot_description sim.launch.py"
+
+# === Teleop docker === #
+.PHONY: teleop 
+teleop:
+	@echo "Starting Teleop ..."
+	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 run teleop_twist_keyboard teleop_twist_keyboard"

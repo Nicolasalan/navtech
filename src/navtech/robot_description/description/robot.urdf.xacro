@@ -3,4 +3,6 @@
 
     <xacro:include filename="core.xacro" />
 
+    <xacro:include filename="control.xacro" />
+
 </robot>
