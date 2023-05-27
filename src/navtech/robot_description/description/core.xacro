@@ -25,19 +25,20 @@
         <color rgba="1 0 0 1"/>
     </material>
 
-    <!-- BASE LINK-->
+    <!-- ######## BASE LINK ######## -->
     <link name="base_link">
-
     </link>
 
-    <!-- FOOTPRINT -->
-    <link name='base_footprint'/>
-    <joint name="joint_base_footprint_to_base" type="fixed">
-      <origin xyz="0 0 0"/>
-      <parent link="base_footprint"/>
-      <child link="base"/>
+    <!-- ######## BASE FOOTPRINT ######## -->
+
+    <joint name="base_footprint_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="base_footprint"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
     </joint>
 
+    <link name="base_footprint">
+    </link>
 
     <!-- ######## CHASSIS ######## -->
 

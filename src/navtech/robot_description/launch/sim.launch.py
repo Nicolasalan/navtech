@@ -11,6 +11,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
 
     package_name='robot_description'
+    world = os.path.join(get_package_share_directory(package_name),'worlds','obstacles.world')
 
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
@@ -29,7 +30,7 @@ def generate_launch_description():
                         arguments=['-topic', 'robot_description',
                                    '-entity', 'robot'],
                         output='screen')
-
+    
     # Launch them all!
     return LaunchDescription([
         rsp,
