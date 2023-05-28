@@ -1,17 +1,11 @@
 {
-  "hash": "25762649",
-  "browserHash": "987c418f",
+  "hash": "908c944a",
+  "browserHash": "abc21aab",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "b621f434",
-      "needsInterop": false
-    },
-    "@auth0/auth0-spa-js": {
-      "src": "../../../../node_modules/@auth0/auth0-spa-js/dist/auth0-spa-js.production.esm.js",
-      "file": "@auth0_auth0-spa-js.js",
-      "fileHash": "bcc5fdf7",
+      "fileHash": "a6c34d53",
       "needsInterop": false
     }
   },

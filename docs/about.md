@@ -1,10 +1,21 @@
-# :tada: Welcome to the Docs
-Este é um site de documentação para a equipe de alunos `RoboFEI` do Centro Universitário FEI no Brasil. O robô da equipe é chamado `Hera`.
-## **Motivação**
-Ao longo dos anos, muitas pessoas se juntam a equipes de robótica e lutam para aprender sobre questões técnicas como `ROS`, `Github` e `linguagens de programação`. Esse é um problema comum que afeta não apenas minha equipe, mas muitas outras.
+# About
 
-Para ajudar a resolver esse problema, decidi criar uma documentação abrangente que inclui cursos, dicas e tutoriais sobre como criar, usar e aprender sobre robótica. Meu objetivo é tornar o processo de aprendizado mais fácil e acessível para todos que se interessam por robótica e desejam ingressar em equipes de robótica.
+Welcome to the about page.
 
-Espero que esta iniciativa ajude a reduzir as barreiras que muitas pessoas enfrentam ao ingressar em equipes de robótica e que isso permita que mais pessoas se envolvam e contribuam para este campo fascinante e em constante evolução.
+This markdown supports html elements like the `p` tag coupled with inline styles
 
-> "Se vi mais longe, foi por estar sobre ombros de gigantes." -Isaac Newton
+<p style="color: var(--vp-c-brand-dark); border: 1px solid var(--vp-c-brand-dark); border-radius:5px; padding: 1rem;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+
+Even satire code snippets with syntax highlighting are also supported. 😅
+
+```js
+const lang = prompt("What is your favorite programming language?");
+
+(lang === "JavaScript") | (lang === "javascript") | (lang === "js")
+  ? alert("JavaScript to the world! 🚀🟡")
+  : alert(`We don't permit such languages here 💩`);
+```
+
+Of course, images are not left out.
+
+<img src="/logo.svg" alt="adocs logo">

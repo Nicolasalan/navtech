@@ -1,10 +1,5 @@
 # Contact
 
-## Nicolas Alan Grotti 🇧🇷
-* **Linkdin:** https://www.linkedin.com/in/nicolas-alan-grotti/
-* **Email:** nicolasalangrotti03@gmail.com
-* **Github:** https://github.com/Nicolasalan
+<!-- It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. -->
 
-<div align="center">
-     <img src="./public/img.jpg" alt="Nicolas Alan" width="500px">
-</div>
+Welcome to the contact page
