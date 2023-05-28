@@ -10,15 +10,16 @@ SHELL [ "/bin/bash" , "-c"]
 RUN apt-get update \
  && apt-get install -yq python3-pip apt-utils git vim python3-colcon-common-extensions
 
-# Install Dependencies Robot Navigation
+# Install Dependencies "Robot Navigation"
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-humble-navigation2 \
     ros-humble-nav2-bringup \
     ros-humble-cartographer-ros \
     ros-humble-ament-package \
-    ros-humble-robot-localization 
+    ros-humble-robot-localization \
+    ros-humble-slam-toolbox 
 
-# Install Dependencies Robot Description
+# Install Dependencies "Robot Description"
 RUN apt-get install -y --no-install-recommends \
     apt-utils \
     ros-humble-rqt-reconfigure \
@@ -35,8 +36,11 @@ RUN apt-get install -y --no-install-recommends \
     ros-humble-gazebo-plugins \
     xterm
 
-# Install Dependencies with pip3
-RUN pip3 install transforms3d setuptools==58.2.0 pyserial smbus trimesh scipy pandas 
+# Install Dependencies with pip
+RUN pip3 install transforms3d setuptools==58.2.0 pyserial smbus trimesh scipy pandas npm
+
+#Install dependencies for web site
+RUN npm i vitepress -g
 
 # Create Colcon workspace
 RUN mkdir /ws_navtech
@@ -45,14 +49,16 @@ RUN mkdir /ws_navtech
 COPY entrypoint.sh /ws_navtech/entrypoint.sh
 COPY ./Makefile /ws_navtech/Makefile
 
-# Copy package ros
-COPY src/navtech/robot_description /ws_navtech/src/navtech/robot_description
+# Copy package ROS
+COPY src/navtech/robot /ws_navtech/src/navtech/robot
 
 # Source ROS and Build
 RUN cd /ws_navtech && source /opt/ros/humble/setup.bash && colcon build --symlink-install
 
+# Source ROS and Build
 RUN echo "source /ws_navtech/install/setup.bash" >> ~/.bashrc
 
+# Set Workdir
 WORKDIR /ws_navtech
 
 # Run command entrypoint

@@ -14,20 +14,3 @@ jobs:
         uses: actions/checkout@v3
       - name: Checkout submodules
         run: git submodule update --init --recursive
-  
-  Build:
-    needs: [Checkout]
-    runs-on: macos-latest
-    steps:
-      - name: Build the docker image
-        run: docker build --platform linux/arm64 -t navtech .
-
-  Env:
-    needs: [Build]
-    runs-on: macos-latest
-    env:
-      working-directory: ./
-    steps:
-      - name: Running the tests
-        run: docker run ninim/navtech:latest bash -c "echo $ROS_DISTRO""
-        working-directory: ${{env.working-directory}}

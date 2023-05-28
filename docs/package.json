@@ -1,0 +1,22 @@
+{
+  "name": "adocs",
+  "version": "1.0.0",
+  "description": "Vitepress template to include simple authentication realised with auth0",
+  "main": "index.ts",
+  "repository": "https://github.com/nicolasala/adocs.git",
+  "author": "nicolasalangrotti03@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
+  },
+  "devDependencies": {
+    "@auth0/auth0-spa-js": "^1.17.0",
+    "vitepress": "^1.0.0-alpha.65",
+    "vue": "^3.2.6"
+  },
+  "dependencies": {
+    "express-jwt-authz": "^2.4.1"
+  }
+}

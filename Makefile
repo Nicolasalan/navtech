@@ -49,22 +49,28 @@ terminal:
 .PHONY: tf 
 tf:
 	@echo "Starting TFs ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot_description robot.launch.py"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot robot.launch.py"
 
 # === Gazebo docker === #
 .PHONY: sim2 
 sim2:
 	@echo "Starting Simulations ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot_description sim.launch.py  world:=/ws_navtech/src/navtech/robot_description/worlds/obstacles.world"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot sim.launch.py  world:=/ws_navtech/src/navtech/robot/worlds/obstacles.world"
 
 # === Gazebo docker === #
 .PHONY: sim
 sim:
 	@echo "Starting Simulations ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot_description sim.launch.py"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot sim.launch.py"
 
 # === Teleop docker === #
 .PHONY: teleop 
 teleop:
 	@echo "Starting Teleop ..."
 	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 run teleop_twist_keyboard teleop_twist_keyboard"
+
+# === SLAM ToolBox docker === #
+.PHONY: slam
+slam:
+	@echo "Starting SLAM ToolBox ..."
+	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot slam.launch.py"
