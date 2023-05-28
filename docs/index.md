@@ -3,59 +3,39 @@ layout: home
 
 # Hero section
 hero:
-  name: Adocs
-  text: Static docs template built with VitePress.
+  name: NavTech
+  text: Docs on robotics built from ROS
   image:
-    src: /logo-big.svg
+    src: /log.svg
     alt: Adocs logo
-  tagline: A free to use template for creating docs for your projects
+    style:
+      width: 600px
+      height: 500px
+      margin-top: 30px
+      margin-right: 15px
+  tagline: Proposal for the development of an omnidirectional robot using the ROS 2 platform and the Nav2 navigation library
   actions:
     - theme: brand
       text: Get Started
       link: /guide
     - theme: alt
       text: View on GitHub
-      link: https://github.com/Evavic44/adocs
+      link: https://github.com/Nicolasalan/Navtech
 
 # Features section
 features:
-  - icon: ⚡️
-    title: Adocs, The DX that can't be beat
+  - icon: 🧭
+    title: Navigation
     details: Lorem ipsum...
-  - icon: 🎉
-    title: Power of Vue meets Markdown
+  - icon: 🤖
+    title: Components
     details: Lorem ipsum...
-  - icon: 🔥
-    title: Simple and minimal, always
+  - icon: 👀
+    title: Purpose 
     details: Lorem ipsum...
-  - icon: 🎀
-    title: Stylish and cool
+  - icon: 📦
+    title: Docker 
     details: Lorem ipsum...
-
-# Meta property
-head:
-  - - meta
-    - property: og:type
-      content: website
-  - - meta
-    - property: og:title
-      content: Adocs
-  - - meta
-    - property: og:image
-      content: https://user-images.githubusercontent.com/62628408/200117602-4b274d14-b1b2-4f61-8dcd-9f9482c677a0.png
-  - - meta
-    - property: og:url
-      content: https://vitejs.dev/blog/announcing-vite3
-  - - meta
-    - name: title
-      content: Adocs
-  - - meta
-    - name: twitter:card
-      content: https://user-images.githubusercontent.com/62628408/200117602-4b274d14-b1b2-4f61-8dcd-9f9482c677a0.png
-  - - link
-    - rel: icon
-      type: image/svg
-      href: logo.svg
 ---
 
 <!-- Custom home layout -->
