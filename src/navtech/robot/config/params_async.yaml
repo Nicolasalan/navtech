@@ -2,7 +2,7 @@ slam_toolbox:
   ros__parameters:
 
     # Plugin params
-    solver_plugin: solver_plugins::CeresSolver
+    solver_plugin: solver_plugins::CeresSolver 
     ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
     ceres_preconditioner: SCHUR_JACOBI
     ceres_trust_strategy: LEVENBERG_MARQUARDT
@@ -10,13 +10,13 @@ slam_toolbox:
     ceres_loss_function: None
 
     # ROS Parameters
-    odom_frame: odom
+    odom_frame: odom # frame 
     map_frame: map
     base_frame: base_footprint
     scan_topic: /scan
-    mode: mapping # localization
+    mode: mapping # or localization
 
-    map_file_name: /home/dev/dev_ws/my_map_serial
+    map_file_name: /ws_navtech/src/navtech/robot/maps/map_serial
     # map_start_pose: [0.0, 0.0, 0.0]
     map_start_at_dock: true
 

@@ -1,4 +1,4 @@
-# NavTech
+# **NavTech**
 
 <p align="center">
   <a href="http://wiki.ros.org/humble">
@@ -18,3 +18,28 @@
 <p align="center">
   <img src="docs/public/image.png" alt="NavTech">
 </p>
+
+## Build
+
+
+## Folder Structure
+
+```
+docs/
+├── .vitepress/
+│   ├── config.js
+│   └── theme/
+│       ├── index.js
+│       └── custom.css
+├── public/
+│   ├── logo.svg
+│   └── logo-big.svg
+├── about.md
+├── configs.md
+├── contact.md
+├── get-started.md
+├── guide.md
+├── index.md
+├── package.json
+└── README.md
+```

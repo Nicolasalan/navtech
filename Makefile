@@ -74,3 +74,9 @@ teleop:
 slam:
 	@echo "Starting SLAM ToolBox ..."
 	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot slam.launch.py"
+
+# === Save Map docker === #
+.PHONY: save
+save:
+	@echo "Saving Map ..."
+	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 run nav2_map_server map_saver_cli -f /ws_navtech/src/navtech/robot/maps/map"
