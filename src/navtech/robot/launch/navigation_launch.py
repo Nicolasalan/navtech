@@ -13,6 +13,7 @@ def generate_launch_description():
     # Get the launch directory
     bringup_dir = get_package_share_directory('robot')
 
+    # parameters to pass to the nav2 stack
     namespace = LaunchConfiguration('namespace')
     use_sim_time = LaunchConfiguration('use_sim_time')
     autostart = LaunchConfiguration('autostart')
@@ -20,6 +21,7 @@ def generate_launch_description():
     default_bt_xml_filename = LaunchConfiguration('default_bt_xml_filename')
     map_subscribe_transient_local = LaunchConfiguration('map_subscribe_transient_local')
 
+    # nodes to launch
     lifecycle_nodes = ['controller_server',
                        'planner_server',
                        'recoveries_server',
