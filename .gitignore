@@ -257,3 +257,8 @@ npm-debug.log
 yarn-error.log
 
 # End of https://www.toptal.com/developers/gitignore/api/c++,python,vue,vuejs,ros2
+
+# remove DS_Store
+.DS_Store
+./src/navtech/.DS_Store
+./src/navtech/robot/.DS_Store

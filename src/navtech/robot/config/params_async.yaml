@@ -14,7 +14,7 @@ slam_toolbox:
     map_frame: map
     base_frame: base_footprint
     scan_topic: /scan
-    mode: mapping # or localization
+    mode: mapping # localization or mapping
 
     map_file_name: /ws_navtech/src/navtech/robot/maps/map_serial
     # map_start_pose: [0.0, 0.0, 0.0]
