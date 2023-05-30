@@ -2,14 +2,13 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <gazebo>
-        <plugin name="base_link_controller" filename="libgazebo_ros_planar_move.so">
+        <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
           <robotNamespace>/</robotNamespace>
           <commandTopic>cmd_vel</commandTopic>
           <odometryTopic>odom</odometryTopic>
           <odometryFrame>odom</odometryFrame>
-          <odometryRate>100</odometryRate>
-          <cmdTimeout>-1</cmdTimeout>
-          <robotBaseFrame>base_link</robotBaseFrame>
+          <odometryRate>20</odometryRate>
+          <robotBaseFrame>base_footprint</robotBaseFrame>
         </plugin>
     </gazebo>
 

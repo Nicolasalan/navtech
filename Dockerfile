@@ -37,10 +37,7 @@ RUN apt-get install -y --no-install-recommends \
     xterm
 
 # Install Dependencies with pip
-RUN pip3 install transforms3d setuptools==58.2.0 pyserial smbus trimesh scipy pandas npm
-
-#Install dependencies for web site
-RUN npm i vitepress -g
+RUN pip3 install transforms3d setuptools==58.2.0 pyserial smbus trimesh scipy pandas
 
 # Create Colcon workspace
 RUN mkdir /ws_navtech

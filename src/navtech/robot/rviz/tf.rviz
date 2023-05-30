@@ -6,8 +6,6 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /TF1
-        - /RobotModel1
       Splitter Ratio: 0.5
     Tree Height: 413
   - Class: rviz_common/Selection
@@ -74,7 +72,7 @@ Visualization Manager:
       Name: TF
       Show Arrows: true
       Show Axes: true
-      Show Names: false
+      Show Names: true
       Tree:
         base_link:
           back_wheel:
@@ -202,25 +200,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 1.469738483428955
+      Distance: 1.8979061841964722
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.07308249920606613
-        Y: 0.10381326824426651
-        Z: 0.23761005699634552
+        X: 0
+        Y: 0
+        Z: 0
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.30539876222610474
+      Pitch: 0.4303981363773346
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.6403962969779968
+      Yaw: 0.9803978204727173
     Saved: ~
 Window Geometry:
   Displays:

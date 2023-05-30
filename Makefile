@@ -80,3 +80,21 @@ slam:
 save:
 	@echo "Saving Map ..."
 	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 run nav2_map_server map_saver_cli -f /ws_navtech/src/navtech/robot/maps/map"
+
+# === Build Docs === #
+.PHONY: docs-build
+docs-build:
+	@echo "Building Docs ..."
+	@npm run docs:build
+
+# === Run Docs === #
+.PHONY: docs
+docs:
+	@echo "Starting Docs ..."
+	@npm run docs:dev
+
+# === Stop Docker === #
+.PHONY: kill
+kill:
+	@echo "Stopping Docker ..."
+	@sudo docker stop $(shell sudo docker ps -a -q)
