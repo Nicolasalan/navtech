@@ -11,12 +11,15 @@ from launch_ros.actions import Node
 def generate_launch_description():
 
     package_name='robot'
+
     world = os.path.join(get_package_share_directory(package_name),'worlds','obstacles.world')
 
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory(package_name),'launch','robot.launch.py'
-                )]), launch_arguments={'use_sim_time': 'true'}.items()
+                )]), launch_arguments={'use_sim_time': 'true',
+                'rviz_file': os.path.join(get_package_share_directory(package_name),'config','slam.rviz')}.items()
+            
     )
 
     # Include the Gazebo launch file, provided by the gazebo_ros package

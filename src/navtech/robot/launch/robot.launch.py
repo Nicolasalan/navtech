@@ -13,6 +13,7 @@ def generate_launch_description():
 
     # Check if we're told to use sim time
     use_sim_time = LaunchConfiguration('use_sim_time', default='True')
+    rviz_file = LaunchConfiguration('rviz_file', default=os.path.join(get_package_share_directory('robot'), 'config', 'tf.rviz'))
 
     # Process the URDF file
     pkg_path = os.path.join(get_package_share_directory('robot'))
@@ -40,7 +41,7 @@ def generate_launch_description():
         package='rviz2',
         executable='rviz2',
         output='screen',
-        arguments=['-d', os.path.join(pkg_path, 'rviz', 'tf.rviz')]
+        arguments=['-d', rviz_file]
     )
 
     # Launch!
@@ -50,7 +51,9 @@ def generate_launch_description():
             default_value='false',
             description='Use sim time if true'),
 
+        
         node_robot_state_publisher,
         node_joint_state_publisher,
         node_rviz
+        
     ])
