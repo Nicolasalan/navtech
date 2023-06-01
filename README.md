@@ -63,21 +63,21 @@ make clean
 ## Estrutura de pastas
 
 ```
-docs/                  # Documentação do projeto
+docs/                     # Documentação do projeto
 src/
 ├── navtech/
 │   ├── robot/
-│   │   ├── config/      # Arquivos de configuração
-│   │   ├── description/ # Arquivos URDF
-│   │   ├── launch/      # Arquivos de lançamento
-│   │   ├── robot/       # Arquivos de código-fonte
-│   │   ├── worlds/      # Arquivos de mundo
+│   │   ├── config/       # Arquivos de configuração
+│   │   ├── description/  # Arquivos URDF
+│   │   ├── launch/       # Arquivos de lançamento
+│   │   ├── robot/        # Arquivos de código-fonte
+│   │   ├── worlds/       # Arquivos de mundo
 │   │   ├── CMakeLists.txt
 │   │   ├── package.xml
-entrypoint.sh          # Script de entrada
-Makefile               # Comandos de execução MakeFile
-README.md              # README
-Dockefile              # Imagem Docker
+entrypoint.sh             # Script de entrada
+Makefile                  # Comandos de execução MakeFile
+README.md                 # README do projeto
+Dockefile                 # Imagem Docker
 ```
 
 ## Contribuição
