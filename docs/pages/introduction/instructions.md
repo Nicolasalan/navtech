@@ -1,6 +1,6 @@
 # Descrição do Projeto
 
-O hospital em São Bernardo do Campo solicitou um robô para auxiliar na entrega de alimentos e medicamentos aos pacientes. O robô deve ser capaz de reconhecer o ambiente e localizar cada quarto de acordo com o paciente. Além disso, ele deve ter reconhecimento facial para garantir que o medicamento correto seja entregue ao paciente adequado. O robô terá dois pares de rodas omnidirecionais para facilitar seus movimentos. A comunicação entre o robô e o paciente será feita por meio de uma interface web, fornecendo informações relevantes sobre os itens entregues. Como referência, serão utilizados os robôs existentes TIAGo® e Deepsoccer.
+O hospital em São Bernardo do Campo solicitou um robô para auxiliar na entrega de alimentos e medicamentos aos pacientes. O robô deve ser capaz de reconhecer o ambiente e localizar cada quarto de acordo com o paciente. Além disso, ele deve garantir que o medicamento correto seja entregue ao paciente adequado. O robô terá dois pares de rodas omnidirecionais para facilitar seus movimentos. A comunicação entre o robô e o paciente será feita por meio de uma interface web, fornecendo informações relevantes sobre os itens entregues. Como referência, serão utilizados os robôs existentes TIAGo® e Deepsoccer.
 
 Os objetivos a serem realizados para o robô são os seguintes:
 

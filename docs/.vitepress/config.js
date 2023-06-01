@@ -40,8 +40,6 @@ export default {
         text: "Estrutura Mecânica",
         collapsible: false,
         items: [
-          { text: "Introduction", link: "/pages/mechanics/introduction.md" },
-          { text: "Materiais utilizados na construção", link: "/pages/mechanics/materials.md" },
           { text: "Projetos CAD e desenhos técnicos", link: "/pages/mechanics/designs.md" },
           { text: "Instruções de montagem e configuração mecânica", link: "/pages/mechanics/assembly.md" },
         ],
