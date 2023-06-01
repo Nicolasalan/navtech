@@ -5,6 +5,4 @@ O diagrama apresentado ilustra uma versão base para a montagem do robô, repres
    > **Note** :
    > Inicialmente, o projeto incluía a utilização de uma câmera para reconhecimento facial. No entanto, devido a restrições orçamentárias, não foi viável implementar esse componente no momento.
    
-<div align="center">
-     <img src="./img/diagram.png" alt="Diagram Robot" width="500px">
-</div>
+![Diagram Robot](./img/diagram.png)
