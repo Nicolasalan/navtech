@@ -1,7 +1,5 @@
 # **NavTech**
 
-O desenvolvimento completo de um robô omnidirecional autônomo envolve a utilização da pilha de navegação do ROS 2 (Robot Operating System 2) juntamente com componentes eletrônicos para a construção do robô. O ROS 2 é um framework amplamente utilizado para desenvolvimento de sistemas robóticos, fornecendo uma variedade de ferramentas e bibliotecas para facilitar a navegação autônoma.
-
 <p align="center">
   <a href="http://wiki.ros.org/humble">
     <img src="https://img.shields.io/badge/ROS-Humble-red" alt="ROS Humble Compatible">
@@ -16,6 +14,8 @@ O desenvolvimento completo de um robô omnidirecional autônomo envolve a utiliz
     <img src="https://img.shields.io/badge/Ubuntu-v20.04-9cf" alt="Ubuntu">
   </a>
 </p>
+
+O desenvolvimento completo de um robô omnidirecional autônomo envolve a utilização da pilha de navegação do ROS 2 (Robot Operating System 2) juntamente com componentes eletrônicos para a construção do robô. O ROS 2 é um framework amplamente utilizado para desenvolvimento de sistemas robóticos, fornecendo uma variedade de ferramentas e bibliotecas para facilitar a navegação autônoma.
 
 <p align="center">
   <img src="docs/public/image.png" alt="NavTech">
