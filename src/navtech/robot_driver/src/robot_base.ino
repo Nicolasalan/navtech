@@ -26,6 +26,7 @@ rclc_executor_t executor01;
 rclc_executor_t executor02;
 rcl_timer_t timer;
 rcl_node_t node;
+
 bool micro_ros_init_successful;
 
 #define LED_PIN 25 // LED ligado na porta D25
