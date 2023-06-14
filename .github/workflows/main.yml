@@ -20,11 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build and push Docker image
-        uses: docker/build-push-action@v2
-        with:
-          context: .  # O diretório atual é usado como contexto para a construção da imagem
-          push: true  # Para fazer o push da imagem para um registro, se necessário
-          tags: navtech:latest  # Tags da imagem Docker
+        run: docker build -t navtech:latest .
+        working-directory: ${{ github.workspace }}
 
   Library:
     needs: [Build]
