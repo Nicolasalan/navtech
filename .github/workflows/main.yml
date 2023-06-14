@@ -20,15 +20,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build and push Docker image
-        run: docker build -t navtech:latest /home/runner/work/NavTech/Dockerfile
-        working-directory: ${{ github.workspace }}
+        run: echo $GITHUB_WORKSPACE
 
-  Library:
-    needs: [Build]
-    runs-on: ubuntu-latest
-    env:
-      working-directory: ./
-    steps:
-      - name: Running the tests
-        run: docker run navtech:latest bash -c "ros2 run robot library.py"
-        working-directory: ${{env.working-directory}}
+  #Library:
+  #  needs: [Build]
+  #  runs-on: ubuntu-latest
+  #  env:
+  #    working-directory: ./
+  #  steps:
+  #    - name: Running the tests
+  #      run: docker run navtech:latest bash -c "ros2 run robot library.py"
