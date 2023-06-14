@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build and push Docker image
-        run: docker build -t navtech:latest .
+        run: docker build -t navtech:latest /home/runner/work/NavTech/Dockerfile
         working-directory: ${{ github.workspace }}
 
   Library:
