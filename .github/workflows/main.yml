@@ -18,10 +18,15 @@ jobs:
   Build:
     needs: [Checkout]
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag navtech:latest
+      - name: Running the tests
+        run: docker run navtech:latest bash -c "cd /ws_navtech/src/navtech/robot/test && python3 library.py"
+        working-directory: ${{env.working-directory}}
 
   Library:
     needs: [Build]
