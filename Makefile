@@ -98,3 +98,13 @@ docs:
 kill:
 	@echo "Stopping Docker ..."
 	@sudo docker stop $(shell sudo docker ps -a -q)
+
+## =========== CI/CD =========== ##
+
+.PHONY: push-docker
+push-docker:
+	@echo "Pushing Docker Image ..."
+	@sudo docker tag navtech:latest navtech:latest
+	@sudo docker push navtech:latest
+
+

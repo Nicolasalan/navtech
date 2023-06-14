@@ -35,3 +35,10 @@ make sim2
 # terminal 2
 make slam
 ```
+
+
+# Docker
+
+make build
+
+make push-docker
