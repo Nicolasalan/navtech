@@ -19,8 +19,9 @@ jobs:
     needs: [Checkout]
     runs-on: ubuntu-latest
     steps:
-      - name: Build and push Docker image
-        run: ls ${{ github.workspace }}
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag navtech:$(date +%s)
 
   #Library:
   #  needs: [Build]
