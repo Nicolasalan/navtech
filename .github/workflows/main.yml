@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Checkout submodules
         run: git submodule update --init --recursive
-        working-directory: ${{env.working-directory}}
+        
 
   Build:
     needs: [Checkout]
@@ -22,6 +22,7 @@ jobs:
     steps:
       - name: Build the docker image
         run: docker build -t navtech:latest . 
+        working-directory: ${{env.working-directory}}
 
   Library:
     needs: [Build]
