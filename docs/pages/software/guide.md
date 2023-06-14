@@ -1,4 +1,26 @@
-# SLAM
+# Software Guide
+
+## Comandos e Configurações para utilizar o robo
+
+* **Iniciar robo na simulacao**
+
+```bash
+make tf
+```
+
+* **Iniciar robo na simulacao sem mundo**
+
+```bash
+make sim
+```
+
+* **Iniciar robo na simulacao com mundo**
+
+```bash
+make sim2
+```
+
+* **Iniciar robo na simulacao com SLAM**
 
 ```bash
 # terminal 1
@@ -7,7 +29,9 @@ make sim2
 make slam
 ```
 
-# AMCL
+* **Iniciar robo na simulacao com AMCL**
+
+```bash
 
 ```bash
 # terminal 1
@@ -16,7 +40,7 @@ make sim2
 make amcl
 ```
 
-# Navigation
+* **Iniciar robo na simulacao com Navigation**
 
 ```bash
 # terminal 1
@@ -25,20 +49,10 @@ make sim2
 make navigation
 ```
 
-# Navigation with SLAM
+* **Atualizar o Docker Hub**
 
 ```bash
-# terminal 1
-make sim2
-# Chosen mode in params_async.yaml
-
-# terminal 2
-make slam
-```
-
-
-# Docker
-
 make build
 
 make push-docker
+``` 

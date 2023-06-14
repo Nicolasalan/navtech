@@ -1,3 +1,5 @@
+# ROS (Robot Operating System)
+
 O avanço da robótica tem revolucionado diversos setores da sociedade, desde a indústria até a medicina, passando pela exploração espacial e até mesmo pelos nossos lares. Por trás dessa evolução, existe uma tecnologia crucial chamada ROS (Robot Operating System, em inglês), que desempenha um papel fundamental na construção e no funcionamento de robôs modernos.
 
 O ROS é uma plataforma de software de código aberto desenvolvida especificamente para a robótica. Ele fornece um conjunto abrangente de ferramentas, bibliotecas e padrões que permitem a criação de sistemas robóticos avançados. Sua popularidade tem crescido exponencialmente, tornando-se um padrão de fato na indústria robótica.

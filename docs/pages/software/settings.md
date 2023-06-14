@@ -16,6 +16,11 @@ src/
 │   │   ├── package.xml
 ```  
 
+* A pasta `config` contem todas as especificacoes do robo sobre mapeamento e navegacao, alem de possuir o mapa do ambiente e arquivo de rviz para visualizacao do robo.
+* O `description` contem o arquivo URDF do robo, que é utilizado para a simulacao do robo, junto com os controladores e sensores utilizado no robo, que sao especificados no arquivo `robot.urdf.xacro`.
+* O `launch` contem os arquivos de lancamento do robo, que sao utilizados para iniciar a simulacao do robo. Os principais sao navigation e simulation, que sao utilizados para iniciar a navegacao e simulacao do robo, respectivamente.
+* O `test` e `worlds` contem os arquivos de teste e mundo, respectivamente.
+
 ## Configuração do Ambiente
 Para configurar o ambiente é necessario ter o docker instalado em sua maquina, pois todo o sistema é construido em cima do container. [Docker](https://docs.docker.com/engine/install/ubuntu/)
 
