@@ -1,6 +1,6 @@
 # Configuração do Sistema
 
-O Sistema utilizado no projheto foi dividio em pacotes, mesmo utilizado em ROS, alem disso. Nesse caso o pacote robot, contem todo o sistema de simualcao e navegacao do robo.
+O sistema utilizado no projeto foi dividido em pacotes, seguindo uma estrutura similar ao ROS (Robot Operating System). O pacote principal, chamado navtech, contém todo o sistema de simulação e navegação do robô.
 
 ```
 docs/                     # Documentação do projeto
@@ -14,16 +14,30 @@ src/
 │   │   ├── worlds/       # Arquivos de mundo
 │   │   ├── CMakeLists.txt
 │   │   ├── package.xml
+
 ```  
 
-* A pasta `config` contem todas as especificacoes do robo sobre mapeamento e navegacao, alem de possuir o mapa do ambiente e arquivo de rviz para visualizacao do robo.
-* O `description` contem o arquivo URDF do robo, que é utilizado para a simulacao do robo, junto com os controladores e sensores utilizado no robo, que sao especificados no arquivo `robot.urdf.xacro`.
-* O `launch` contem os arquivos de lancamento do robo, que sao utilizados para iniciar a simulacao do robo. Os principais sao navigation e simulation, que sao utilizados para iniciar a navegacao e simulacao do robo, respectivamente.
-* O `test` e `worlds` contem os arquivos de teste e mundo, respectivamente.
+A estrutura do pacote `navtech` é a seguinte:
+
+* A pasta `config` contém todas as especificações do robô para mapeamento e navegação, além de possuir o mapa do ambiente e um arquivo de RViz para visualização do robô.
+
+* A pasta `description` contém o arquivo URDF do robô, que é utilizado para a simulação do robô, juntamente com os controladores e sensores especificados no arquivo `robot.urdf.xacro`.
+
+* A pasta `launch` contém os arquivos de lançamento do robô, que são utilizados para iniciar a simulação do robô. Os principais arquivos são `navigation.launch` e `simulation.launch`, que são utilizados para iniciar a navegação e a simulação do robô, respectivamente.
+
+* As pastas `test` e `worlds` contêm os arquivos de teste e os arquivos de mundo, respectivamente.
 
 ## Configuração do Ambiente
-Para configurar o ambiente é necessario ter o docker instalado em sua maquina, pois todo o sistema é construido em cima do container. [Docker](https://docs.docker.com/engine/install/ubuntu/)
+Para configurar o ambiente, é necessário ter o Docker instalado em sua máquina, pois todo o sistema é construído em cima de um container. Você pode encontrar as instruções de instalação do Docker em `Docker`.
 
-O arquivo `makefile` contem todos os comandos necessarios para a execucao do sistema, para executar o sistema basta executar o comando `make run` no terminal.
+O arquivo `Makefile` contém todos os comandos necessários para a execução do sistema. Para executar o sistema, basta abrir o terminal e executar o comando `make run`.
 
-Isso iniciara a simulacao e junto com o objetivo do robo, no qual é passar por todos os waypoints, demostrando a navegacao do robo.
+Isso iniciará a simulação juntamente com o objetivo do robô, que é passar por todos os waypoints, demonstrando a navegação do robô.
+
+Certifique-se de ter todas as dependências e requisitos de software instalados antes de executar o sistema.
+
+Para mais informações e detalhes sobre o projeto, consulte a documentação disponível na pasta `docs`.
+
+
+
+

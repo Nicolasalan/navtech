@@ -1,26 +1,29 @@
-# Software Guide
+# Guia de Software
+Este é um guia para usar e configurar o robô em simulação. A seguir estão os comandos e configurações necessários para diferentes cenários de uso.
 
-## Comandos e Configurações para utilizar o robo
+## Iniciar o robô na simulação
+Para iniciar o robô na simulação, você pode usar os seguintes comandos:
 
-* **Iniciar robo na simulacao**
+* **Iniciar o robô na simulação básica**
 
 ```bash
 make tf
 ```
 
-* **Iniciar robo na simulacao sem mundo**
+* **Iniciar o robô na simulação sem mundo**
 
 ```bash
 make sim
 ```
 
-* **Iniciar robo na simulacao com mundo**
+* **Iniciar o robô na simulação com mundo**
 
 ```bash
 make sim2
 ```
 
-* **Iniciar robo na simulacao com SLAM**
+* **Iniciar o robô na simulação com SLAM**
+Se você deseja iniciar o robô na simulação com SLAM (mapeamento e localização simultâneos), siga as etapas abaixo:
 
 ```bash
 # terminal 1
@@ -29,9 +32,9 @@ make sim2
 make slam
 ```
 
-* **Iniciar robo na simulacao com AMCL**
+* **Iniciar o robô na simulação com AMCL**
+Para iniciar o robô na simulação com AMCL (Adaptive Monte Carlo Localization), siga as etapas abaixo:
 
-```bash
 
 ```bash
 # terminal 1
@@ -40,7 +43,8 @@ make sim2
 make amcl
 ```
 
-* **Iniciar robo na simulacao com Navigation**
+* **Iniciar o robô na simulação com navegação**
+Para iniciar o robô na simulação com navegação, siga as etapas abaixo:
 
 ```bash
 # terminal 1
@@ -50,9 +54,12 @@ make navigation
 ```
 
 * **Atualizar o Docker Hub**
+Se você deseja atualizar o Docker Hub com as alterações feitas no robô, siga os comandos abaixo:
 
 ```bash
 make build
 
 make push-docker
 ``` 
+
+Certifique-se de ter todas as dependências e requisitos de software instalados antes de executar os comandos acima.
