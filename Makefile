@@ -30,7 +30,7 @@ help:
 .PHONY: build
 build:
 	@echo "Building docker image ..."
-	@sudo docker build -t navtech . 
+	@sudo docker build -t navtech:latest . 
 
 # === Clean docker === #
 .PHONY: clean
