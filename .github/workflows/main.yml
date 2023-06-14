@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag navtech:$(date +%s)
+        run: docker build . --file Dockerfile --tag navtech:latest
 
   Library:
     needs: [Build]
