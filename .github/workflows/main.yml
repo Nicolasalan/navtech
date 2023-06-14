@@ -23,11 +23,12 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag navtech:$(date +%s)
 
-  #Library:
-  #  needs: [Build]
-  #  runs-on: ubuntu-latest
-  #  env:
-  #    working-directory: ./
-  #  steps:
-  #    - name: Running the tests
-  #      run: docker run navtech:latest bash -c "ros2 run robot library.py"
+  Library:
+    needs: [Build]
+    runs-on: ubuntu-latest
+    env:
+      working-directory: ./
+    steps:
+      - name: Running the tests
+        run: docker run navtech:latest bash -c "cd /ws_navtech/src/navtech/robot/test && python3 library.py"
+        working-directory: ${{env.working-directory}}

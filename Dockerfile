@@ -37,7 +37,7 @@ RUN apt-get install -y --no-install-recommends \
     xterm
 
 # Install Dependencies with pip
-RUN pip3 install transforms3d setuptools==58.2.0 pyserial smbus trimesh scipy pandas
+RUN pip3 install transforms3d setuptools==58.2.0 pyserial smbus trimesh scipy pandas pytest
 
 # Create Colcon workspace
 RUN mkdir /ws_navtech
