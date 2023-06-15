@@ -6,3 +6,7 @@ O diagrama apresentado ilustra uma versão base para a montagem do robô, repres
    > Inicialmente, o projeto incluía a utilização de uma câmera para reconhecimento facial. No entanto, devido a restrições orçamentárias, não foi viável implementar esse componente no momento.
    
 ![Diagram Robot](./img/diagram.png)
+
+A seguir, apresento o diagrama mais detalhado referente ao circuito do motor com encoders, o qual é o único circuito desenvolvido para o projeto em questão.
+
+![Diagram Robot](./img/diagram_esp.png)
