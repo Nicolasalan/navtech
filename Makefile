@@ -43,63 +43,63 @@ clean:
 .PHONY: terminal
 terminal:
 	@echo "Terminal docker ..."
-	@xhost local:root
-	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash
+#@xhost local:root
+	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash
 
 # === Start TFs docker === #
 .PHONY: tf 
 tf:
 	@echo "Starting TFs ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot robot.launch.py"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot robot.launch.py"
 
 # === Gazebo docker === #
 .PHONY: sim2 
 sim2:
 	@echo "Starting Simulations ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot sim.launch.py  world:=/ws_navtech/src/navtech/robot/worlds/obstacles.world"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot sim.launch.py  world:=/ws_navtech/src/navtech/robot/worlds/obstacles.world"
 
 # === Gazebo docker === #
 .PHONY: sim
 sim:
 	@echo "Starting Simulations ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot sim.launch.py"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot sim.launch.py"
 
 # === Gazebo docker === #
 .PHONY: sim3
 sim3:
 	@echo "Starting Simulations ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot hospital.launch.py"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot hospital.launch.py"
 
 
 # === Teleop docker === #
 .PHONY: teleop 
 teleop:
 	@echo "Starting Teleop ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 run teleop_twist_keyboard teleop_twist_keyboard"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 run teleop_twist_keyboard teleop_twist_keyboard"
 
 # === SLAM ToolBox docker === #
 .PHONY: slam
 slam:
 	@echo "Starting SLAM ToolBox ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot slam.launch.py"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot slam.launch.py"
 
 # === AMCL docker === #
 .PHONY: amcl
 amcl:
 	@echo "Starting AMCL ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot localization.launch.py use_sim_time:=true"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot localization.launch.py use_sim_time:=true"
 
 # === Nav docker === #
 .PHONY: nav
 nav:
 	@echo "Starting AMCL ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot navigation.launch.py"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot navigation.launch.py"
 
 # === Save Map docker === #
 .PHONY: save
 save:
 	@echo "Saving Map ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 run nav2_map_server map_saver_cli -f /ws_navtech/src/navtech/robot/config/map"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 run nav2_map_server map_saver_cli -f /ws_navtech/src/navtech/robot/config/map"
 
 # === Build Docs === #
 .PHONY: docs-build
@@ -112,6 +112,12 @@ docs-build:
 docs:
 	@echo "Starting Docs ..."
 	@npm run docs:dev
+
+# === Run === #
+.PHONY: run
+run:
+	@echo "Starting ..."
+	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot run.launch.py"
 
 # === Stop Docker === #
 .PHONY: kill

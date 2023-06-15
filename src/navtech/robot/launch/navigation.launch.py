@@ -92,22 +92,6 @@ def generate_launch_description():
             remappings=remappings),
 
         Node(
-            package='nav2_recoveries',
-            executable='recoveries_server',
-            name='recoveries_server',
-            output='screen',
-            parameters=[configured_params],
-            remappings=remappings),
-
-        Node(
-            package='nav2_bt_navigator',
-            executable='bt_navigator',
-            name='bt_navigator',
-            output='screen',
-            parameters=[configured_params],
-            remappings=remappings),
-
-        Node(
             package='nav2_waypoint_follower',
             executable='waypoint_follower',
             name='waypoint_follower',
