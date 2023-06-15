@@ -34,8 +34,9 @@ RUN apt-get install -y --no-install-recommends \
     ros-humble-tf-transformations \
     ros-humble-joint-state-publisher-gui \
     ros-humble-gazebo-plugins \
-    xterm
-
+    ament-cmake \
+    xterm 
+    
 # Install Dependencies with pip
 RUN pip3 install transforms3d setuptools==58.2.0 pyserial smbus trimesh scipy pandas pytest
 

@@ -2,7 +2,8 @@ DOCKER_VOLUMES = \
 	--volume="/tmp/.X11-unix:/tmp/.X11-unix" \
   	--volume="${HOME}/.Xauthority:/root/.Xauthority:rw" \
  	--volume="/dev:/dev" \
-	--volume="${PWD}/src":"/ws_navtech/src/":rw 
+	--volume="$(shell pwd)/src":"/ws_navtech/src/":rw \
+	--volume="$(shell pwd)":"/ws_navtech/":rw 
 
 DOCKER_ENV_VARS = \
  	--env="DISPLAY=${DISPLAY}" \
@@ -62,6 +63,13 @@ sim2:
 sim:
 	@echo "Starting Simulations ..."
 	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot sim.launch.py"
+
+# === Gazebo docker === #
+.PHONY: sim3
+sim3:
+	@echo "Starting Simulations ..."
+	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot hospital.launch.py"
+
 
 # === Teleop docker === #
 .PHONY: teleop 
