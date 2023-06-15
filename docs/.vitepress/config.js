@@ -33,7 +33,6 @@ export default {
           { text: "Lista de componentes eletrônicos utilizados no robô", link: "/pages/electronics/list.md" },
           { text: "Diagramas de circuito", link: "/pages/electronics/diagrams.md" },
           { text: "Especificações dos componentes e funções", link: "/pages/electronics/specifications.md" },
-          { text: "Instruções de montagem e conexão dos componentes", link: "/pages/electronics/instructions.md" },
         ],
       },
       {
@@ -41,7 +40,6 @@ export default {
         collapsible: false,
         items: [
           { text: "Projetos CAD e desenhos técnicos", link: "/pages/mechanics/designs.md" },
-          { text: "Instruções de montagem e configuração mecânica", link: "/pages/mechanics/assembly.md" },
         ],
       },
       {
@@ -50,7 +48,7 @@ export default {
         items: [
           { text: "Introdução ao ROS (Robot Operating System) e sua importância", link: "/pages/software/introduction.md" },
           { text: "Configuração do ambiente de desenvolvimento ROS", link: "/pages/software/settings.md" },
-          { text: "Integração com o pacote Nav2 para navegação autônoma", link: "/pages/software/guide.md" },
+          { text: "Integração com o pacote Nav2 para navegação autônoma", link: "/pages/software/integration.md" },
           { text: "Descrição dos pacotes ROS utilizados no robô", link: "/pages/software/description.md" },
         ],
       },
