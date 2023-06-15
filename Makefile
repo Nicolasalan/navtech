@@ -30,7 +30,7 @@ help:
 .PHONY: build
 build:
 	@echo "Building docker image ..."
-	@sudo docker build -t navtech:latest . 
+	@sudo docker build -t ninim/navtech:latest . 
 
 # === Clean docker === #
 .PHONY: clean
@@ -75,11 +75,23 @@ slam:
 	@echo "Starting SLAM ToolBox ..."
 	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot slam.launch.py"
 
+# === AMCL docker === #
+.PHONY: amcl
+amcl:
+	@echo "Starting AMCL ..."
+	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot localization.launch.py use_sim_time:=true"
+
+# === Nav docker === #
+.PHONY: nav
+nav:
+	@echo "Starting AMCL ..."
+	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 launch robot navigation.launch.py"
+
 # === Save Map docker === #
 .PHONY: save
 save:
 	@echo "Saving Map ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 run nav2_map_server map_saver_cli -f /ws_navtech/src/navtech/robot/maps/map"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} navtech bash -c "ros2 run nav2_map_server map_saver_cli -f /ws_navtech/src/navtech/robot/config/map"
 
 # === Build Docs === #
 .PHONY: docs-build
