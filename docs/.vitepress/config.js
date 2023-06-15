@@ -48,7 +48,7 @@ export default {
         items: [
           { text: "Introdução ao ROS (Robot Operating System) e sua importância", link: "/pages/software/introduction.md" },
           { text: "Configuração do ambiente de desenvolvimento ROS", link: "/pages/software/settings.md" },
-          { text: "Integração com o pacote Nav2 para navegação autônoma", link: "/pages/software/integration.md" },
+          { text: "Integração com o pacote Nav2 para navegação autônoma", link: "/pages/software/guide.md" },
           { text: "Descrição dos pacotes ROS utilizados no robô", link: "/pages/software/description.md" },
         ],
       },
