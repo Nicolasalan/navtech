@@ -10,17 +10,23 @@ Para iniciar o robô na simulação, você pode usar os seguintes comandos:
 make tf
 ```
 
+![Robot](./img/tf.png)
+
 * **Iniciar o robô na simulação sem mundo**
 
 ```bash
 make sim
 ```
 
+![Robot](./img/lidar.png)
+
 * **Iniciar o robô na simulação com mundo**
 
 ```bash
 make sim2
 ```
+
+![Robot](./img/world.png)
 
 * **Iniciar o robô na simulação com SLAM**
 Se você deseja iniciar o robô na simulação com SLAM (mapeamento e localização simultâneos), siga as etapas abaixo:
@@ -31,6 +37,8 @@ make sim2
 # terminal 2
 make slam
 ```
+
+![Robot](./img/slam.png)
 
 * **Iniciar o robô na simulação com AMCL**
 Para iniciar o robô na simulação com AMCL (Adaptive Monte Carlo Localization), siga as etapas abaixo:
