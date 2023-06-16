@@ -51,6 +51,8 @@ make sim2
 make amcl
 ```
 
+![Robot](./img/worlds.png)
+
 * **Iniciar o robô na simulação com navegação**
 Para iniciar o robô na simulação com navegação, siga as etapas abaixo:
 
