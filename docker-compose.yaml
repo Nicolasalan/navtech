@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+
+  xserver:
+    container_name: xserver
+    image: devrt/xserver
+    ipc: host
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      - DISPLAY=:9
+    ports:
+      - "3000:80"
+
+  setup:
+    image: ninim/navtech:latest
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - xserver
+    volumes_from:
+      - xserver
+    environment:
+      - DISPLAY=:9
+    volumes:
+      - ${PWD}/src:/ws_navtech/src/:rw
+    ports:
+      - "1122:1122"
+    security_opt:
+      - seccomp:unconfined
+    ipc: host
+    privileged: true
+    stdin_open: true
+    tty: true 
+    command:
+      - /bin/bash
+      - -c
+      - |
+        xterm -hold -T Terminal -e "tmux" |
+        xterm -maximized -hold -T teste -e "ros2 launch robot sim2.launch.py"
