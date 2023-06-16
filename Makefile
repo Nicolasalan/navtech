@@ -43,7 +43,7 @@ clean:
 .PHONY: terminal
 terminal:
 	@echo "Terminal docker ..."
-#@xhost local:root
+	@xhost local:root
 	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash
 
 # === Start TFs docker === #
@@ -56,7 +56,7 @@ tf:
 .PHONY: sim2 
 sim2:
 	@echo "Starting Simulations ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot sim.launch.py  world:=/ws_navtech/src/navtech/robot/worlds/obstacles.world"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot sim.launch.py  world:=/ws_navtech/src/navtech/robot/worlds/simulation.world"
 
 # === Gazebo docker === #
 .PHONY: sim
@@ -87,7 +87,7 @@ slam:
 .PHONY: amcl
 amcl:
 	@echo "Starting AMCL ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot localization.launch.py use_sim_time:=true"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot localization.launch.py use_sim_time:=true map_yaml_file:=/ws_navtech/src/navtech/robot/config/map_save.yaml"
 
 # === Nav docker === #
 .PHONY: nav
