@@ -38,6 +38,6 @@ Certifique-se de ter todas as dependências e requisitos de software instalados 
 
 Para mais informações e detalhes sobre o projeto, consulte a documentação disponível na pasta `docs`.
 
-
+![Robot](./img/diagram.png)
 
 
