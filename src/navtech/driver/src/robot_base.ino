@@ -169,5 +169,4 @@ void loop() {
     clearEncoders();
     
   }
-
 }
