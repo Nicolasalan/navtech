@@ -1,4 +1,4 @@
-FROM osrf/ros:humble-desktop-full
+FROM osrf/ros:foxy-desktop
 
 # Set the locale
 ARG DEBIAN_FRONTEND=noninteractive 
@@ -12,30 +12,29 @@ RUN apt-get update \
 
 # Install Dependencies "Robot Navigation"
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    ros-humble-navigation2 \
-    ros-humble-nav2-bringup \
-    ros-humble-cartographer-ros \
-    ros-humble-ament-package \
-    ros-humble-robot-localization \
-    ros-humble-slam-toolbox 
+    ros-foxy-navigation2 \
+    ros-foxy-nav2-bringup \
+    ros-foxy-cartographer-ros \
+    ros-foxy-ament-package \
+    ros-foxy-robot-localization \
+    ros-foxy-slam-toolbox 
 
 # Install Dependencies "Robot Description"
 RUN apt-get install -y --no-install-recommends \
     apt-utils \
-    ros-humble-rqt-reconfigure \
-    ros-humble-rviz2 \
-    ros-humble-gazebo-ros \
-    ros-humble-gazebo-ros-pkgs \
-    ros-humble-xacro \
-    ros-humble-robot-state-publisher \
-    ros-humble-joint-state-publisher \
-    ros-humble-rplidar-ros \
-    ros-humble-teleop-twist-keyboard \
-    ros-humble-tf-transformations \
-    ros-humble-joint-state-publisher-gui \
-    ros-humble-gazebo-plugins \
-    ament-cmake \
-    xterm 
+    ros-foxy-rqt-reconfigure \
+    ros-foxy-rviz2 \
+    ros-foxy-gazebo-ros \
+    ros-foxy-gazebo-ros-pkgs \
+    ros-foxy-xacro \
+    ros-foxy-robot-state-publisher \
+    ros-foxy-joint-state-publisher \
+    ros-foxy-rplidar-ros \
+    ros-foxy-teleop-twist-keyboard \
+    ros-foxy-tf-transformations \
+    ros-foxy-joint-state-publisher-gui \
+    ros-foxy-gazebo-plugins \
+    xterm
     
 # Install Dependencies with pip
 RUN pip3 install transforms3d setuptools==58.2.0 pyserial smbus trimesh scipy pandas pytest
@@ -51,7 +50,7 @@ COPY ./Makefile /ws_navtech/Makefile
 COPY src/navtech/robot /ws_navtech/src/navtech/robot
 
 # Source ROS and Build
-RUN cd /ws_navtech && source /opt/ros/humble/setup.bash && colcon build --symlink-install
+RUN cd /ws_navtech && source /opt/ros/foxy/setup.bash && colcon build --symlink-install
 
 # Source ROS and Build
 RUN echo "source /ws_navtech/install/setup.bash" >> ~/.bashrc
