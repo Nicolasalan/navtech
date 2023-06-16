@@ -90,6 +90,14 @@ def generate_launch_description():
             output='screen',
             parameters=[configured_params],
             remappings=remappings),
+        
+        Node(
+            package='nav2_recoveries',
+            executable='recoveries_server',
+            name='recoveries_server',
+            output='screen',
+            parameters=[configured_params],
+            remappings=remappings),
 
         Node(
             package='nav2_waypoint_follower',
