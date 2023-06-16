@@ -35,4 +35,4 @@ services:
     command:
       - /bin/bash
       - -c
-      - ros2 launch robot run.launch.py  world:=/ws_navtech/src/navtech/robot/worlds/simulation.world
+      - ros2 launch robot robot.launch.py
