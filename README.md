@@ -1,8 +1,8 @@
 # **NavTech**
 
 <p align="center">
-  <a href="http://wiki.ros.org/humble">
-    <img src="https://img.shields.io/badge/ROS-Humble-red" alt="ROS Humble Compatible">
+  <a href="http://wiki.ros.org/Foxy">
+    <img src="https://img.shields.io/badge/ROS-Foxy-red" alt="ROS Foxy Compatible">
   </a>
   <a href="https://docs.docker.com/">
     <img src="https://img.shields.io/badge/Docker-v20.10.21-blue" alt="Docker">
