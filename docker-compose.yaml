@@ -26,8 +26,6 @@ services:
       - DISPLAY=:9
     volumes:
       - ${PWD}/src:/ws_navtech/src/:rw
-    ports:
-      - "1122:1122"
     security_opt:
       - seccomp:unconfined
     ipc: host
@@ -37,6 +35,4 @@ services:
     command:
       - /bin/bash
       - -c
-      - |
-        xterm -hold -T Terminal -e "tmux" |
-        xterm -maximized -hold -T teste -e "ros2 launch robot sim2.launch.py"
+      - ros2 launch robot run.launch.py  world:=/ws_navtech/src/navtech/robot/worlds/simulation.world

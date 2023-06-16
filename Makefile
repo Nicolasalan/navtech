@@ -2,8 +2,7 @@ DOCKER_VOLUMES = \
 	--volume="/tmp/.X11-unix:/tmp/.X11-unix" \
   	--volume="${HOME}/.Xauthority:/root/.Xauthority:rw" \
  	--volume="/dev:/dev" \
-	--volume="$(shell pwd)/src":"/ws_navtech/src/":rw \
-	--volume="$(shell pwd)":"/ws_navtech/":rw 
+	--volume="$(shell pwd)/src":"/ws_navtech/src/":rw 
 
 DOCKER_ENV_VARS = \
  	--env="DISPLAY=${DISPLAY}" \
