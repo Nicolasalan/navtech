@@ -60,6 +60,8 @@ make slam
 make nav
 ```
 
+Exemplo de utilização: 
+
 <p align="center">
   <img src="docs/gif/gazebo.gif" alt="Gazebo">
 </p>
