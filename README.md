@@ -62,9 +62,17 @@ make nav
 
 Exemplo de utilização: 
 
-<p align="center">
-  <img src="docs/gif/gazebo.gif" alt="Gazebo">
-</p>
+<center>
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <figure style="text-align: center; flex: 1;">
+      <img src="docs/gif/gazebo.gif" alt="Summit Lake - Charles Donlea" width="400px">
+    </figure>
+    <figure style="text-align: center; flex: 1;">
+      <img src="docs/gif/rviz.gif" alt="Confident Data Skills - Kirill Eremenko" width="400px" height="343px">
+    </figure>
+  </div>
+</center>
+
 
 ## Estrutura de pastas
 
