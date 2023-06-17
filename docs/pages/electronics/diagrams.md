@@ -10,3 +10,8 @@ O diagrama apresentado ilustra uma versão base para a montagem do robô, repres
 A seguir, apresento o diagrama mais detalhado referente ao circuito do motor com encoders, o qual é o único circuito desenvolvido para o projeto em questão.
 
 ![Diagram Robot](./img/diagram_esp.png)
+
+Estrutura do robô da primeira versão, utilizando duas pontes H, ESP32, 4 baterias de lítio, um regulador de 5 V e um fusível para emergência.
+
+
+![Diagram Robot](./img/robot.jpeg)
