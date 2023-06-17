@@ -60,6 +60,8 @@ make stop
 make clean
 ```
 
+<img src="/navtech/docs/gif/gazebo.gif">
+
 ## Estrutura de pastas
 
 ```
