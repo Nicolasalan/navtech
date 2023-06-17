@@ -49,14 +49,17 @@ make build
 
 Após a construção da imagem do Docker, você pode executar o robô utilizando o Makefile fornecido. Veja os principais comandos disponíveis:
 
-- `make sim2`: inicia o ambiente Docker e executa o robô.
+- `make sim`: inicia o ambiente Docker e executa o robô na simualção.
 - `make slam`: inicia a execução do SLAM.
 - `make nav`: inicia o pacote de navegação.
 
 Exemplo de uso:
 ```bash
-make sim2
+# terminal 1
+make sim
+# terminal 2
 make slam
+# terminal 3
 make nav
 ```
 
