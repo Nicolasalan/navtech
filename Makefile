@@ -69,7 +69,6 @@ sim3:
 	@echo "Starting Simulations ..."
 	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot hospital.launch.py"
 
-
 # === Teleop docker === #
 .PHONY: teleop 
 teleop:
@@ -86,13 +85,13 @@ slam:
 .PHONY: amcl
 amcl:
 	@echo "Starting AMCL ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot localization.launch.py use_sim_time:=true map_yaml_file:=/ws_navtech/src/navtech/robot/config/map_save.yaml"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot localization.launch.py use_sim_time:=true map_yaml_file:=/ws_navtech/src/navtech/robot/config/map.yaml"
 
 # === Nav docker === #
 .PHONY: nav
 nav:
-	@echo "Starting AMCL ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot navigation.launch.py"
+	@echo "Starting Nav2 ..."
+	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot navigation.launch.py use_sim_time:=true"
 
 # === Save Map docker === #
 .PHONY: save
@@ -127,7 +126,7 @@ kill:
 ## =========== CI/CD =========== ##
 
 .PHONY: push-docker
-push-docker: 
+push-docker:
 	@echo "Pushing Docker Image ..."
 	@sudo docker tag navtech:latest navtech:latest
 	@sudo docker push navtech:latest
