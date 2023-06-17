@@ -49,18 +49,22 @@ make build
 
 Após a construção da imagem do Docker, você pode executar o robô utilizando o Makefile fornecido. Veja os principais comandos disponíveis:
 
-- `make run`: inicia o ambiente Docker e executa o robô.
-- `make stop`: para a execução do robô.
-- `make clean`: remove os contêineres Docker e limpa o ambiente.
+- `make sim2`: inicia o ambiente Docker e executa o robô.
+- `make slam`: inicia a execução do SLAM.
+- `make nav`: inicia o pacote de navegação.
 
 Exemplo de uso:
 ```bash
-make run
-make stop
-make clean
+make sim2
+make slam
+make nav
 ```
 
-<img src="/navtech/docs/gif/gazebo.gif">
+Exemplo de utilização: 
+
+<p align="center">
+  <img src="docs/gif/gazebo.gif" alt="Gazebo">
+</p>
 
 ## Estrutura de pastas
 
