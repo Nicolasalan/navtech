@@ -52,14 +52,14 @@ tf:
 	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot robot.launch.py"
 
 # === Gazebo docker === #
-.PHONY: sim2 
-sim2:
+.PHONY: sim
+sim:
 	@echo "Starting Simulations ..."
 	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot sim.launch.py  world:=/ws_navtech/src/navtech/robot/worlds/simulation.world"
 
 # === Gazebo docker === #
-.PHONY: sim
-sim:
+.PHONY: sim2
+sim2:
 	@echo "Starting Simulations ..."
 	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot sim.launch.py"
 
