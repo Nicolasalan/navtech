@@ -85,7 +85,7 @@ slam:
 .PHONY: amcl
 amcl:
 	@echo "Starting AMCL ..."
-	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot localization.launch.py use_sim_time:=true map_yaml_file:=/ws_navtech/src/navtech/robot/config/map.yaml"
+	@sudo docker run -it --net=host ${DOCKER_ARGS} ninim/navtech:latest bash -c "ros2 launch robot localization.launch.py use_sim_time:=true map_yaml_file:=/ws_navtech/src/navtech/robot/maps/map.yaml"
 
 # === Nav docker === #
 .PHONY: nav

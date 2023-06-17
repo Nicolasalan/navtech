@@ -18,7 +18,7 @@ def generate_launch_description():
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory(package_name),'launch','robot.launch.py'
                 )]), launch_arguments={'use_sim_time': 'true',
-                'rviz_file': os.path.join(get_package_share_directory(package_name),'config','slam.rviz')}.items()
+                'rviz_file': os.path.join(get_package_share_directory(package_name),'rviz','slam.rviz')}.items()
             
     )
 

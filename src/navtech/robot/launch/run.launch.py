@@ -40,7 +40,7 @@ def generate_launch_description():
      # ====================== ROBOT ====================== #
      # Check if we're told to use sim time
      use_sim_time = LaunchConfiguration('use_sim_time', default='True')
-     rviz_file = LaunchConfiguration('rviz_file', default=os.path.join(get_package_share_directory('robot'), 'config', 'slam.rviz'))
+     rviz_file = LaunchConfiguration('rviz_file', default=os.path.join(get_package_share_directory('robot'), 'rviz', 'slam.rviz'))
 
      # Process the URDF file
      pkg_path = os.path.join(get_package_share_directory('robot'))

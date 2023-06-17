@@ -16,7 +16,7 @@ slam_toolbox:
     scan_topic: /scan
     mode: localization # localization or mapping
 
-    map_file_name: /ws_navtech/src/navtech/robot/config/map_serial
+    map_file_name: /ws_navtech/src/navtech/robot/maps/map_serial
     # map_start_pose: [0.0, 0.0, 0.0]
     map_start_at_dock: true
 
@@ -25,11 +25,11 @@ slam_toolbox:
     transform_publish_period: 0.02 # if 0 never publishes odometry
     map_update_interval: 5.0
     resolution: 0.05
-    max_laser_range: 20.0 #for rastering images
+    max_laser_range: 20.0 # for rastering images
     minimum_time_interval: 0.5
     transform_timeout: 0.2
     tf_buffer_duration: 30.
-    stack_size_to_use: 40000000 #// program needs a larger stack size to serialize large maps
+    stack_size_to_use: 40000000 
     enable_interactive_mode: true
 
     # General Parameters
