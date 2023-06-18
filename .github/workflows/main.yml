@@ -6,10 +6,7 @@ on:
   pull_request:
     branches: ["main"]
   
-jobs:
-  analysis:
-    runs-on: ubuntu-latest
-      
+jobs:    
   Checkout:
     runs-on: ubuntu-latest
     steps:
