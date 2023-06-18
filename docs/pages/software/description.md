@@ -15,7 +15,7 @@ make tf
 * **Iniciar o robô na simulação sem mundo**
 
 ```bash
-make sim
+make sim2
 ```
 
 ![Robot](./img/lidar.png)
@@ -23,7 +23,7 @@ make sim
 * **Iniciar o robô na simulação com mundo**
 
 ```bash
-make sim2
+make sim
 ```
 
 ![Robot](./img/world.png)
@@ -33,7 +33,7 @@ Se você deseja iniciar o robô na simulação com SLAM (mapeamento e localizaç
 
 ```bash
 # terminal 1
-make sim2
+make sim
 # terminal 2
 make slam
 ```
@@ -46,7 +46,7 @@ Para iniciar o robô na simulação com AMCL (Adaptive Monte Carlo Localization)
 
 ```bash
 # terminal 1
-make sim2
+make sim
 # terminal 2
 make amcl
 ```
@@ -63,13 +63,4 @@ make sim2
 make navigation
 ```
 
-* **Atualizar o Docker Hub**
-Se você deseja atualizar o Docker Hub com as alterações feitas no robô, siga os comandos abaixo:
-
-```bash
-make build
-
-make push-docker
-``` 
-
-Certifique-se de ter todas as dependências e requisitos de software instalados antes de executar os comandos acima.
+![Robot](./img/nav.png)
