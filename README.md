@@ -1,18 +1,9 @@
 # **NavTech**
-
 <p align="center">
-  <a href="http://wiki.ros.org/Foxy">
-    <img src="https://img.shields.io/badge/ROS-Foxy-red" alt="ROS Foxy Compatible">
-  </a>
-  <a href="https://docs.docker.com/">
-    <img src="https://img.shields.io/badge/Docker-v20.10.21-blue" alt="Docker">
-  </a>
-  <a href="https://www.python.org/">
-    <img src="https://img.shields.io/badge/Python-v3.8.10-brightgreen" alt="Python3">
-  </a>
-  <a href="https://releases.ubuntu.com/">
-    <img src="https://img.shields.io/badge/Ubuntu-v20.04-9cf" alt="Ubuntu">
-  </a>
+  <a href="http://wiki.ros.org/Foxy"><img alt="ROS Foxy Compatible" src="https://img.shields.io/badge/ROS-Foxy-red"></a>
+  <a href="https://docs.docker.com"><img alt="Docker" src="https://img.shields.io/badge/Docker-v20.10.21-blue"></a>
+  <a href="https://www.python.org/"><img alt="Python3" src="https://img.shields.io/badge/Python-v3.8.10-brightgreen"></a>
+  <a href="https://releases.ubuntu.com/"><img alt="Ubuntu" src="https://img.shields.io/badge/Ubuntu-v20.04-9cf"></a>
 </p>
 
 O desenvolvimento completo de um robô omnidirecional autônomo envolve a utilização da pilha de navegação do ROS 2 (Robot Operating System 2) juntamente com componentes eletrônicos para a construção do robô. O ROS 2 é um framework amplamente utilizado para desenvolvimento de sistemas robóticos, fornecendo uma variedade de ferramentas e bibliotecas para facilitar a navegação autônoma.
@@ -35,7 +26,7 @@ Certifique-se de ter as seguintes dependências instaladas em seu sistema:
 
 Para começar, clone este repositório em seu ambiente local:
 ```bash
-git clone https://github.com/Nicolasalan/NavTech.git
+git clone https://github.com/Nicolasalan/navtech.git
 ``` 
 
 ## Build
